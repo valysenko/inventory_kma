@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import com.inventoryKMA.entities.Unit;
 
 public interface UnitServiceInterface {
+	public void addUnit(Unit unit);
 	public void getUnit(int id);
 	public void deleteUnit(int id);
 	public ArrayList<Unit> getUnits(); 

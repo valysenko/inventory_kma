@@ -4,11 +4,20 @@ public class Unit {
 	private Integer id;
 	private String name;
 	private String number;
-	private Category category;	
-	private Classroom classroom;
+//	private Category category;	
+//	private Classroom classroom;
 
 	public Integer getId() {
 		return id;
+	}
+
+	public Unit(String name, String number) {
+		this.name = name;
+		this.number = number;
+	}
+
+	public Unit() {
+		// TODO Auto-generated constructor stub
 	}
 
 	public void setId(Integer id) {
@@ -31,20 +40,20 @@ public class Unit {
 		this.number = number;
 	}
 
-	public Category getCategory() {
-		return category;
-	}
-
-	public void setCategory(Category category) {
-		this.category = category;
-	}
-
-
-	public Classroom getClassroom() {
-		return classroom;
-	}
-
-	public void setClassroom(Classroom classroom) {
-		this.classroom = classroom;
-	}
+//	public Category getCategory() {
+//		return category;
+//	}
+//
+//	public void setCategory(Category category) {
+//		this.category = category;
+//	}
+//
+//
+//	public Classroom getClassroom() {
+//		return classroom;
+//	}
+//
+//	public void setClassroom(Classroom classroom) {
+//		this.classroom = classroom;
+//	}
 }
