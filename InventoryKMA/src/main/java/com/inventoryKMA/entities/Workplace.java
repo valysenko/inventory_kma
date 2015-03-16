@@ -1,28 +1,32 @@
 package com.inventoryKMA.entities;
 
-import java.util.ArrayList;
+import javax.persistence.*;
+import java.util.List;
 
+@Entity
+@Table(name = "workplace")
 public class Workplace {
-	private Integer id;
-	private Classroom classroom;
-	private ArrayList<Unit> units; 
-	
-	public ArrayList<Unit> getUnits() {
-		return units;
-	}
-	public void setUnits(ArrayList<Unit> units) {
-		this.units = units;
-	}
-	public Integer getId() {
-		return id;
-	}
-	public void setId(Integer id) {
-		this.id = id;
-	}
-	public Classroom getClassroom() {
-		return classroom;
-	}
-	public void setClassroom(Classroom classroom) {
-		this.classroom = classroom;
-	} 
+    @Id
+    @GeneratedValue
+    private Integer id;
+
+    @OneToMany //(fetch = FetchType.EAGER)
+    @JoinColumn(name = "workplace_id")
+    private List<UnitManagement> units;
+
+    public List<UnitManagement> getUnits() {
+        return units;
+    }
+
+    public void setUnits(List<UnitManagement> units) {
+        this.units = units;
+    }
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
 }

@@ -15,8 +15,13 @@ public class Task {
     @Column(name = "message")
     private String message;
 
-//    private User userFrom;
-//    private User userTo;
+    @ManyToOne
+    @JoinColumn(name = "userTo_id")
+    private User userTo;
+
+    @OneToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "userFrom_id", nullable = false)
+    private User userFrom;
 
     public Task() {
     }
@@ -51,18 +56,12 @@ public class Task {
         this.status = status;
     }
 
-//    public User getUserFrom() {
-//        return userFrom;
-//    }
-//    public void setUserFrom(User userFrom) {
-//        this.userFrom = userFrom;
-//    }
-//    public User getUserTo() {
-//        return userTo;
-//    }
-//    public void setUserTo(User userTo) {
-//        this.userTo = userTo;
-//    }
+    public User getUserFrom() {
+        return userFrom;
+    }
 
+    public void setUserFrom(User userFrom) {
+        this.userFrom = userFrom;
+    }
 
 }

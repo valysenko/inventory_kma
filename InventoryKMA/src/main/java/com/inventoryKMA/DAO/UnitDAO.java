@@ -12,7 +12,7 @@ import java.sql.SQLException;
 @Repository
 public class UnitDAO implements UnitDAOInterface {
     private static final String SQL_INSERT_UNIT =
-            "insert into inventory_kma.unit (name,number) values (?,?)";
+            "insert into inventory_kma.unit (name) values (?)";
     private static final String SQL_SELECT_UNIT_BY_ID =
             "select id, name, number from inventory_kma where id = ?";
 
@@ -22,8 +22,7 @@ public class UnitDAO implements UnitDAOInterface {
 
     public void addUnit(Unit unit) {
         jdbcTemplate.update(SQL_INSERT_UNIT,
-                unit.getName(),
-                unit.getNumber());
+                unit.getName());
     }
 
     public Unit getUnit(int id) {
@@ -34,7 +33,6 @@ public class UnitDAO implements UnitDAOInterface {
                         Unit student = new Unit();
                         student.setId(rs.getInt(1));
                         student.setName(rs.getString(2));
-                        student.setNumber(rs.getString(3));
                         return student;
                     }
 

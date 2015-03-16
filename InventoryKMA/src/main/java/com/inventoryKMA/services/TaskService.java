@@ -1,6 +1,7 @@
 package com.inventoryKMA.services;
 
 import com.inventoryKMA.DAO.TaskDAO;
+import com.inventoryKMA.DAO.TaskDAOInterface;
 import com.inventoryKMA.entities.Task;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.transaction.annotation.Transactional;
@@ -12,7 +13,7 @@ import org.springframework.transaction.annotation.Transactional;
 public class TaskService  implements TaskServiceInterface{
 
     @Autowired
-    private TaskDAO taskDAO;
+    private TaskDAOInterface taskDAO;
 
     @Override
     public void addTask(Task task) {

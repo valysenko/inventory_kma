@@ -1,70 +1,83 @@
 package com.inventoryKMA.entities;
 
+import javax.persistence.*;
 import java.util.ArrayList;
+import java.util.List;
 
+@Entity
+@Table(name = "user")
 public class User {
-	private Integer id;
-	private String email;
-	private String phoneNumber;
-	private String firstName;
-	private String lastName;
-	private ArrayList<Task> tasks;
-	private ArrayList<Role> roles;
-	
-	public ArrayList<Role> getRoles() {
-		return roles;
-	}
+    @Id
+    @GeneratedValue
+    private Integer id;
+    private String email;
+    private String phoneNumber;
+    private String firstName;
+    private String lastName;
 
-	public void setRoles(ArrayList<Role> roles) {
-		this.roles = roles;
-	}
+    @OneToMany(mappedBy="userTo")
+    private List<Task> tasks;
 
-	public Integer getId() {
-		return id;
-	}
+    @ManyToMany
+    @JoinTable(name = "user_to_role",
+            joinColumns = @JoinColumn(name = "user_id"),
+            inverseJoinColumns = @JoinColumn(name = "role_id"))
+    private List<Role> roles;
 
-	public void setId(Integer id) {
-		this.id = id;
-	}
+    public List<Role> getRoles() {
+        return roles;
+    }
 
-	public String getEmail() {
-		return email;
-	}
+    public void setRoles(ArrayList<Role> roles) {
+        this.roles = roles;
+    }
 
-	public void setEmail(String email) {
-		this.email = email;
-	}
+    public Integer getId() {
+        return id;
+    }
 
-	public String getPhoneNumber() {
-		return phoneNumber;
-	}
+    public void setId(Integer id) {
+        this.id = id;
+    }
 
-	public void setPhoneNumber(String phoneNumber) {
-		this.phoneNumber = phoneNumber;
-	}
+    public String getEmail() {
+        return email;
+    }
 
-	public String getFirstName() {
-		return firstName;
-	}
+    public void setEmail(String email) {
+        this.email = email;
+    }
 
-	public void setFirstName(String firstName) {
-		this.firstName = firstName;
-	}
+    public String getPhoneNumber() {
+        return phoneNumber;
+    }
 
-	public String getLastName() {
-		return lastName;
-	}
+    public void setPhoneNumber(String phoneNumber) {
+        this.phoneNumber = phoneNumber;
+    }
 
-	public void setLastName(String lastName) {
-		this.lastName = lastName;
-	}
+    public String getFirstName() {
+        return firstName;
+    }
 
-	public ArrayList<Task> getTasks() {
-		return tasks;
-	}
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
 
-	public void setTasks(ArrayList<Task> tasks) {
-		this.tasks = tasks;
-	}
-	
+    public String getLastName() {
+        return lastName;
+    }
+
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
+    }
+
+    public List<Task> getTasks() {
+        return tasks;
+    }
+
+    public void setTasks(List<Task> tasks) {
+        this.tasks = tasks;
+    }
+
 }
