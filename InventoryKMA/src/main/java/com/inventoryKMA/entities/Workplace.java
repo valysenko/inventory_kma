@@ -12,13 +12,13 @@ public class Workplace {
 
     @OneToMany //(fetch = FetchType.EAGER)
     @JoinColumn(name = "workplace_id")
-    private List<UnitManagement> units;
+    private List<UnitItem> units;
 
-    public List<UnitManagement> getUnits() {
+    public List<UnitItem> getUnits() {
         return units;
     }
 
-    public void setUnits(List<UnitManagement> units) {
+    public void setUnits(List<UnitItem> units) {
         this.units = units;
     }
 

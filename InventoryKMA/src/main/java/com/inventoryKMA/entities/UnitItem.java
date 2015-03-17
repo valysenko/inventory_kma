@@ -3,8 +3,8 @@ package com.inventoryKMA.entities;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "unit_management")
-public class UnitManagement {
+@Table(name = "unit_item")
+public class UnitItem {
     @Id
     @GeneratedValue
     private Integer id;
