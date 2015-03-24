@@ -16,6 +16,17 @@ public class Classroom {
     @JoinColumn(name = "classroom_id")
     private List<Workplace> workplaces;
 
+    @ManyToMany(mappedBy = "classrooms")
+     private List<User> users;
+
+    public List<User> getUsers() {
+        return users;
+    }
+
+    public void setUsers(List<User> users) {
+        this.users = users;
+    }
+
     public Integer getId() {
         return id;
     }
