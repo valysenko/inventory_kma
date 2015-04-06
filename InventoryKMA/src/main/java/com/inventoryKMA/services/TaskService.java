@@ -1,6 +1,5 @@
 package com.inventoryKMA.services;
 
-import com.inventoryKMA.DAO.TaskDAO;
 import com.inventoryKMA.DAO.TaskDAOInterface;
 import com.inventoryKMA.entities.Task;
 import org.springframework.beans.factory.annotation.Autowired;

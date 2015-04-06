@@ -5,7 +5,6 @@ import java.util.ArrayList;
 import com.inventoryKMA.DAO.UnitDAOInterface;
 import org.springframework.beans.factory.annotation.Autowired;
 
-import com.inventoryKMA.DAO.UnitDAO;
 import com.inventoryKMA.entities.Unit;
 
 public class UnitService implements UnitServiceInterface{
