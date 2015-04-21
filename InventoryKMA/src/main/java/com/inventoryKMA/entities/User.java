@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Entity
-@Table(name = "user")
+@Table(name = "users")
 public class User {
     @Id
     @GeneratedValue
@@ -14,15 +14,22 @@ public class User {
     private String phoneNumber;
     private String firstName;
     private String lastName;
+    private String password;
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
 
     @OneToMany(mappedBy="userTo")
     private List<Task> tasks;
 
-    @ManyToMany
-    @JoinTable(name = "user_to_role",
-            joinColumns = @JoinColumn(name = "user_id"),
-            inverseJoinColumns = @JoinColumn(name = "role_id"))
-    private List<Role> roles;
+    @OneToOne(cascade = CascadeType.ALL, targetEntity=Role.class,fetch = FetchType.EAGER)
+    @JoinTable(name = "user_roles", joinColumns = { @JoinColumn(name = "user_id", referencedColumnName = "id") }, inverseJoinColumns = { @JoinColumn(name = "role_id", referencedColumnName = "id") })
+    private Role role;
 
     @ManyToMany
     @JoinTable(name = "user_to_classroom",
@@ -36,18 +43,6 @@ public class User {
 
     public void setClassrooms(List<Classroom> classrooms) {
         this.classrooms = classrooms;
-    }
-
-    public void setRoles(List<Role> roles) {
-        this.roles = roles;
-    }
-
-    public List<Role> getRoles() {
-        return roles;
-    }
-
-    public void setRoles(ArrayList<Role> roles) {
-        this.roles = roles;
     }
 
     public Integer getId() {
@@ -68,6 +63,14 @@ public class User {
 
     public String getPhoneNumber() {
         return phoneNumber;
+    }
+
+    public Role getRole() {
+        return role;
+    }
+
+    public void setRole(Role role) {
+        this.role = role;
     }
 
     public void setPhoneNumber(String phoneNumber) {

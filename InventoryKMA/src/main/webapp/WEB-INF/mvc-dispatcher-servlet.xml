@@ -6,6 +6,8 @@
         http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd">
 
     <context:component-scan base-package="com.inventoryKMA"/>
+    <context:component-scan base-package="com.inventoryKMA.services" />
+    <context:component-scan base-package="com.inventoryKMA.DAO" />
 
     <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
         <property name="prefix" value="/WEB-INF/pages/"/>
@@ -55,6 +57,12 @@
     </bean>
 
     <bean id="taskService" class="com.inventoryKMA.services.TaskService">
+    </bean>
+
+    <!--<bean id="userDAO" class="com.inventoryKMA.DAO.UserDAOInterface">-->
+    <!--</bean>-->
+
+    <bean id="customUserDetailsService" class="com.inventoryKMA.services.CustomUserDetailsService">
     </bean>
 
     <!-- sending email-->
