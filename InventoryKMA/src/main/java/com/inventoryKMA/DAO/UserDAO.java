@@ -1,5 +1,6 @@
 package com.inventoryKMA.DAO;
 
+import com.inventoryKMA.entities.Role;
 import com.inventoryKMA.entities.Task;
 import com.inventoryKMA.entities.User;
 import com.inventoryKMA.services.UserServiceInterface;
@@ -21,6 +22,9 @@ public class UserDAO implements UserDAOInterface{
     @Autowired
     private SessionFactory sessionFactory;
 
+    @Autowired
+    private RoleDAOInterface roleDAO;
+
     private Session currentSession() {
         return sessionFactory.getCurrentSession();
     }
@@ -31,8 +35,16 @@ public class UserDAO implements UserDAOInterface{
     }
 
     @Override
-    public Task getUserById(int id) {
-        return null;
+    public User getUserById(int id) {
+        List<User> userList = new ArrayList<User>();
+        Query query = currentSession().createQuery("from User u where u.id = :id");
+        query.setParameter("id", id);
+        userList = query.list();
+        if (userList.size() > 0)
+            return userList.get(0);
+        else
+            return null;
+
     }
 
 
@@ -57,7 +69,18 @@ public class UserDAO implements UserDAOInterface{
         String hql = "FROM User";
         return currentSession().createQuery(hql)
                 .list();
-//        return null;
+    }
+
+    public List<User> getUsersByRoleName(String name){
+        List<User> usersList = new ArrayList<User>();
+
+        Query query = currentSession().createQuery("select u from User as u " +
+                "join u.role as roles " +
+                "with  roles.role = :name  ");
+
+        query.setParameter("name", name);
+        usersList = query.list();
+        return usersList;
     }
 
 }

@@ -15,8 +15,8 @@ public class TaskService  implements TaskServiceInterface{
     private TaskDAOInterface taskDAO;
 
     @Override
-    public void addTask(Task task) {
-        taskDAO.addTask(task);
+    public void addTask(String email,Task task) {
+        taskDAO.addTask(email,task);
         System.out.println("task added to db");
     }
 

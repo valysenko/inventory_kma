@@ -11,14 +11,14 @@ import org.springframework.web.servlet.ModelAndView;
 @Controller
 public class SecurityController {
 
-    @RequestMapping(value = "/user-login", method = RequestMethod.GET)
+    @RequestMapping(value = "/login", method = RequestMethod.GET)
     public ModelAndView loginForm() {
         return new ModelAndView("login-page");
     }
 
     @RequestMapping(value = "/error-login", method = RequestMethod.GET)
     public ModelAndView invalidLogin() {
-        ModelAndView modelAndView = new ModelAndView("login-form");
+        ModelAndView modelAndView = new ModelAndView("login-page");
         modelAndView.addObject("error", true);
         return modelAndView;
     }

@@ -12,6 +12,14 @@ public class Task {
     @Column(name = "status")
     private String status;
 
+    public User getUserTo() {
+        return userTo;
+    }
+
+    public void setUserTo(User userTo) {
+        this.userTo = userTo;
+    }
+
     @Column(name = "message")
     private String message;
 
@@ -24,6 +32,16 @@ public class Task {
     private User userFrom;
 
     public Task() {
+    }
+
+    @Override
+    public int hashCode() {
+        return super.hashCode();
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        return super.equals(obj);
     }
 
     public Task(String status, String message) {

@@ -14,6 +14,22 @@ public class User {
     private String phoneNumber;
     private String firstName;
     private String lastName;
+
+    @Override
+    public int hashCode() {
+        return super.hashCode();
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        return super.equals(obj);
+    }
+
+    @Override
+    public String toString() {
+        return firstName + " " +lastName;
+    }
+
     private String password;
 
     public String getPassword() {

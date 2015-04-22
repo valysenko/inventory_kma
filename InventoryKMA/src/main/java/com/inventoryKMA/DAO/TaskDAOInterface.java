@@ -9,7 +9,7 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface TaskDAOInterface {
-    public void addTask(Task task);
+    public void addTask(String email,Task task);
 
     public Task getTaskById(int id);
 

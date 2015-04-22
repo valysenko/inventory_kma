@@ -1,11 +1,15 @@
 package com.inventoryKMA.services;
 
+import com.inventoryKMA.entities.User;
+import org.springframework.transaction.annotation.Transactional;
+
 import java.util.List;
 
-import com.inventoryKMA.entities.User;
-
+/**
+ * Created by Vladyslav on 22.04.2015.
+ */
+@Transactional
 public interface UserServiceInterface {
-	public void addUser(int id);
-	public void deleteUser(int id);
-	public List<User> getUsers();
+    public List<User> getUsersByRoleName(String name);
+    public User getUserById(Integer id);
 }
