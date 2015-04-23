@@ -10,6 +10,32 @@ public class Workplace {
     @GeneratedValue
     private Integer id;
 
+    private Integer sequenceNumber;
+
+    @ManyToOne
+    @JoinColumn(name = "classroom_id")
+    private Classroom classroom;
+
+    public Classroom getClassroom() {
+        return classroom;
+    }
+
+    public void setClassroom(Classroom classroom) {
+        this.classroom = classroom;
+    }
+
+    public Integer getSequenceNumber() {
+        return sequenceNumber;
+    }
+
+    public Workplace(Integer sequenceNumber) {
+        this.sequenceNumber = sequenceNumber;
+    }
+
+    public void setSequenceNumber(Integer sequenceNumber) {
+        this.sequenceNumber = sequenceNumber;
+    }
+
     @OneToMany //(fetch = FetchType.EAGER)
     @JoinColumn(name = "workplace_id")
     private List<UnitItem> units;

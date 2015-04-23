@@ -5,7 +5,5 @@ import java.util.ArrayList;
 import com.inventoryKMA.entities.Classroom;
 
 public interface ClassroomServiceInterface {
-	public void getClassroom(int id);
-	public void deleteClassroom(int id);
-	public ArrayList<Classroom> getClassrooms(); 
+    public void addClassrom(Classroom classroom);
 }

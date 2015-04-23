@@ -71,6 +71,9 @@
     <bean id="userService" class="com.inventoryKMA.services.UserService">
     </bean>
 
+    <bean id="classroomService" class="com.inventoryKMA.services.ClassroomService">
+    </bean>
+
     <bean id="userEditor" class="com.inventoryKMA.services.UserEditor">
     </bean>
 
@@ -79,6 +82,10 @@
 
     <bean id="customUserDetailsService" class="com.inventoryKMA.services.CustomUserDetailsService">
     </bean>
+
+    <!--validation-->
+
+    <!--<bean id="validator" class="org.springframework.validation.beanvalidation.LocalValidatorFactoryBean"/>-->
 
     <!-- sending email-->
 

@@ -25,6 +25,9 @@
             <li>
                 <a href="<c:url value="/admin/task/new"/>">Add task</a>
             </li>
+            <li>
+                <a href="<c:url value="/admin/classroom/new"/>">Add task</a>
+            </li>
         </ul>
     </sec:authorize>
 

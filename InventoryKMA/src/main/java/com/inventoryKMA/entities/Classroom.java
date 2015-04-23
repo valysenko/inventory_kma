@@ -2,18 +2,23 @@ package com.inventoryKMA.entities;
 
 import javax.persistence.*;
 import java.util.List;
-
+import javax.validation.constraints.*;
 @Entity
 @Table(name = "classroom")
 public class Classroom {
     @Id
     @GeneratedValue
     private Integer id;
+
+    @Min(1)
     private Integer rows;
+
+    @Min(1)
     private Integer columns;
 
-    @OneToMany(fetch = FetchType.EAGER)
-    @JoinColumn(name = "classroom_id")
+    private String number;
+
+    @OneToMany(mappedBy="classroom")
     private List<Workplace> workplaces;
 
     @ManyToMany(mappedBy = "classrooms")
@@ -57,5 +62,13 @@ public class Classroom {
 
     public void setWorkplaces(List<Workplace> workplaces) {
         this.workplaces = workplaces;
+    }
+
+    public String getNumber() {
+        return number;
+    }
+
+    public void setNumber(String number) {
+        this.number = number;
     }
 }
