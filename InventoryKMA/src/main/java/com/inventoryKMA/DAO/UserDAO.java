@@ -44,7 +44,6 @@ public class UserDAO implements UserDAOInterface{
             return userList.get(0);
         else
             return null;
-
     }
 
 

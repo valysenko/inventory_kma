@@ -5,6 +5,8 @@ import com.inventoryKMA.entities.Task;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.List;
+
 /**
  * Created by Vladyslav on 03.03.2015.
  */
@@ -16,8 +18,11 @@ public class TaskService  implements TaskServiceInterface{
 
     @Override
     public void addTask(String email,Task task) {
-        taskDAO.addTask(email,task);
-        System.out.println("task added to db");
+        taskDAO.addTask(email, task);
+    }
+    @Override
+    public  void finishTask(int id){
+        taskDAO.finishTask(id);
     }
 
     @Override
@@ -28,6 +33,11 @@ public class TaskService  implements TaskServiceInterface{
     @Override
     public void saveTask(Task task) {
         taskDAO.saveTask(task);
+    }
+
+    @Override
+    public List<Task> getTasksOfUser(String email){
+        return taskDAO.getTasksOfUser(email);
     }
 
 }

@@ -12,10 +12,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.WebDataBinder;
-import org.springframework.web.bind.annotation.InitBinder;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
 import java.security.Principal;
@@ -28,7 +26,6 @@ import java.util.List;
  */
 
 @Controller
-@RequestMapping("/admin/task")
 public class TaskController {
 
     @Autowired
@@ -49,7 +46,7 @@ public class TaskController {
         binder.registerCustomEditor(User.class, this.userEditor);
     }
 
-    @RequestMapping("/new")
+    @RequestMapping("/admin/task/new")
     public String addTaskShow(ModelMap model){
 
         model.addAttribute("task",new Task());
@@ -59,7 +56,7 @@ public class TaskController {
         return "task";
     }
 
-    @RequestMapping(value = "/add", method = RequestMethod.POST,name = "add")
+    @RequestMapping(value = "/admin/task/add", method = RequestMethod.POST,name = "add")
     public String addTask(@ModelAttribute("task") Task task,
                           BindingResult result) {
 //        //logged in user
@@ -69,6 +66,24 @@ public class TaskController {
         taskService.addTask(email,task);
 
         return "redirect:/";
+    }
+
+    @RequestMapping(value = "/assistant/tasks", method = RequestMethod.GET)
+    public String getAssistantTasks(ModelMap model) {
+
+       //logged in user
+        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+        String email = auth.getName(); //get logged in email
+
+        model.addAttribute("tasks",taskService.getTasksOfUser(email));
+        return "taskList";
+    }
+
+    @RequestMapping(value = "/assistant/task/finish/{id}", method = RequestMethod.GET)
+    public String finishTask(ModelMap model,@PathVariable int id) {
+
+        taskService.finishTask(id);
+        return "redirect:/assistant/tasks";
     }
 
 }

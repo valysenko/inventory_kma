@@ -31,7 +31,7 @@
     <sec:authorize ifAnyGranted="ROLE_ASSISTANT">
         <ul class="nav navbar-nav">
             <li>
-                <a href="<c:url value="#"/>">My tasks</a>
+                <a href="<c:url value="/assistant/tasks"/>">My tasks</a>
             </li>
         </ul>
     </sec:authorize>
