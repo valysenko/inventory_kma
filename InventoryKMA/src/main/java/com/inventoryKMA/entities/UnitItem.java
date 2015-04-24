@@ -13,6 +13,18 @@ public class UnitItem {
     @JoinColumn(name = "unit_id", nullable = false)
     private Unit unit;
 
+    public Workplace getWorkplace() {
+        return workplace;
+    }
+
+    public void setWorkplace(Workplace workplace) {
+        this.workplace = workplace;
+    }
+
+    @ManyToOne
+    @JoinColumn(name = "workplace_id")
+    private Workplace workplace;
+
     private String number;
 
     public Integer getId() {

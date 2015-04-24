@@ -1,5 +1,9 @@
 package com.inventoryKMA.entities;
 
+import org.hibernate.annotations.Fetch;
+import org.hibernate.annotations.FetchMode;
+import org.hibernate.annotations.IndexColumn;
+
 import javax.persistence.*;
 import java.util.List;
 import javax.validation.constraints.*;
@@ -18,7 +22,9 @@ public class Classroom {
 
     private String number;
 
-    @OneToMany(mappedBy="classroom")
+//    @Fetch(FetchMode.SELECT)
+    @OneToMany(mappedBy="classroom",fetch = FetchType.EAGER)
+  //  @IndexColumn(name="classroom_id")
     private List<Workplace> workplaces;
 
     @ManyToMany(mappedBy = "classrooms")

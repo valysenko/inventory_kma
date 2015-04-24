@@ -1,11 +1,16 @@
 package com.inventoryKMA.DAO;
 
 import com.inventoryKMA.entities.Classroom;
+import com.inventoryKMA.entities.User;
 import com.inventoryKMA.entities.Workplace;
+import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by Vladyslav on 23.04.2015.
@@ -22,6 +27,26 @@ public class ClassroomDAO implements ClassroomDAOInterface{
 
     private Session currentSession() {
         return sessionFactory.getCurrentSession();
+    }
+
+    @Override
+    public List<Classroom> getAllClassrooms() {
+        List<Classroom> userList = new ArrayList<Classroom>();
+        Query query = currentSession().createQuery("from Classroom");
+        userList = query.list();
+        return userList;
+    }
+
+    @Override
+    public Classroom getClassroomByNumber(String number) {
+        List<Classroom> userList = new ArrayList<Classroom>();
+        Query query = currentSession().createQuery("from Classroom cl where cl.number = :number");
+        query.setParameter("number", number);
+        userList = query.list();
+        if (userList.size() > 0)
+            return userList.get(0);
+        else
+            return null;
     }
 
     public void addClassroom(Classroom classroom){

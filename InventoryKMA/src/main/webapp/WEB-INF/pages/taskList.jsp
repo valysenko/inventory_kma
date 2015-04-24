@@ -34,8 +34,8 @@
                 <td>${task.status}</td>
                 <td>
                     <c:if test="${task.status == 'in progress'}">
-                        <a href="/assistant/task/finish/${task.id}">finish </a>
-                    </c:if>
+                    <a href="/assistant/task/finish/${task.id}">finish </a>
+                </c:if>
                 </td>
             </tr>
         </c:forEach>

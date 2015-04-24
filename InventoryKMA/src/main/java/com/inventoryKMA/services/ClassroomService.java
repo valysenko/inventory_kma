@@ -5,6 +5,8 @@ import com.inventoryKMA.entities.Classroom;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.List;
+
 /**
  * Created by Vladyslav on 23.04.2015.
  */
@@ -18,4 +20,13 @@ public class ClassroomService implements ClassroomServiceInterface{
         classroomDAO.addClassroom(classroom);
     }
 
+    @Override
+    public List<Classroom> getAllClassrooms() {
+        return classroomDAO.getAllClassrooms();
+    }
+
+    @Override
+    public Classroom getClassroomByNumber(String number) {
+        return classroomDAO.getClassroomByNumber(number);
+    }
 }
