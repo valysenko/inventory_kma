@@ -13,4 +13,6 @@ public interface UserServiceInterface {
     public List<User> getUsersByRoleName(String name);
     public User getUserById(Integer id);
     public void deleteUser(int id);
+
+    public  void addUser(User user);
 }

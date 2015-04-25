@@ -27,7 +27,7 @@ public class CabinetController {
     @RequestMapping(value="/user/cabinet", method = RequestMethod.GET)
     public String userCabinet(ModelMap model) {
 
-        return "cabinet";
+        return "redirect:/user/complaint/new";
     }
 
 
