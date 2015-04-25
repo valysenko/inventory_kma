@@ -26,20 +26,20 @@ public class Classroom {
     @NotNull
     private String number;
 
-//    @Fetch(FetchMode.SELECT)
+
     @OneToMany(mappedBy="classroom",fetch = FetchType.EAGER)
-  //  @IndexColumn(name="classroom_id")
     private List<Workplace> workplaces;
 
-    @ManyToMany(mappedBy = "classrooms")
-     private List<User> users;
+    @ManyToOne
+    @JoinColumn(name = "user_id")
+    private User user;
 
-    public List<User> getUsers() {
-        return users;
+    public User getUser() {
+        return user;
     }
 
-    public void setUsers(List<User> users) {
-        this.users = users;
+    public void setUser(User user) {
+        this.user = user;
     }
 
     public Integer getId() {

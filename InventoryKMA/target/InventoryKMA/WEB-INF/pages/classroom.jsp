@@ -15,35 +15,63 @@
 </head>
 <body>
 <jsp:include page="header.jsp"/>
-<div class="container">
-
-    <form:form method="post" action="/admin/classroom/add" commandName="classroom">
+<div class="container" style="width:280px;text-align:center">
+    <h3>
+        New classroom
+    </h3>
+    <form:form style="margin:auto;padding:auto;" method="post" action="/admin/classroom/add" commandName="classroom">
         <table>
             <tr>
-                <td>Rows: <form:input path="rows" /></td>
+                <td>
+                    <label for="rows">Rows:</label>
+                    <form:input id="rows" class="form-control" path="rows" /></td>
 
-                <c:set var="first"><form:errors path="rows"/></c:set>
+                <c:set var="first"><form:errors class="form-control" path="rows"/></c:set>
                 <c:if test="${not empty first}">
-                    <td>Must be greater than 0!</td>
+                    <td><span  style="color:darkred"> Must be greater than 0! </span></td>
                 </c:if>
             </tr>
+
             <tr>
-                <td>Columns: <form:input path="columns" /></td>
+                <td>
+                    <label for="columns">Columns:</label>
+                    <form:input id="columns" class="form-control" path="columns" /></td>
                 <c:set var="second"><form:errors path="columns"/></c:set>
                 <c:if test="${not empty second}">
-                    <td>Must be greater than 0!</td>
-                </c:if>
-            </tr>
-            <tr>
-                <td>Number: <form:input path="number" /></td>
-                <c:set var="third"><form:errors path="number"/></c:set>
-                <c:if test="${not empty third}">
-                    <td>Cannot be empty!</td>
+                    <td><span  style="color:darkred">  Must be greater than 0! </span></td>
                 </c:if>
             </tr>
 
             <tr>
-                <td><input type="submit"></td>
+                <td>
+                    <label for="assistant">Assistant:</label>
+                    <form:select id="assistant" class="form-control" path="user">
+                        <form:options items="${users}" itemValue="id"/>
+                    </form:select>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <label for="number">Number:</label>
+                    <form:input id="number" class="form-control" path="number" /></td>
+                <c:set var="third"><form:errors path="number"/></c:set>
+                <c:if test="${not empty third}">
+                    <td> <span  style="color:darkred">  Can not be empty! </span> </td>
+                </c:if>
+            </tr>
+
+            <tr>
+                <td style="height:10px">
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <button type="submit" class="btn btn-default preview-add-button">
+                        <span class="glyphicon glyphicon-plus"></span> Add
+                    </button>
+                </td>
             </tr>
         </table>
     </form:form>
