@@ -21,12 +21,12 @@
 </head>
 <body>
 <jsp:include page="header.jsp"/>
-<div class="container" style="width:280px;text-align:center">
+<div class="container" style="width:500px;text-align:center;">
     <h3>
         New classroom
     </h3>
-    <form:form style="margin:auto;padding:auto;" method="post" action="/admin/classroom/add" commandName="classroom">
-        <table>
+    <form:form method="post" action="/admin/classroom/add" commandName="classroom">
+        <table style="text-align:left;margin:auto;padding:auto;">
             <tr>
                 <td>
                     <label for="rows">Rows:</label>
@@ -34,7 +34,7 @@
 
                 <c:set var="first"><form:errors class="form-control" path="rows"/></c:set>
                 <c:if test="${not empty first}">
-                    <td><span  style="color:darkred"> Must be greater than 0! </span></td>
+                    <td style="vertical-align:middle;"><span  style="color:darkred;padding-left:10px"> Must be greater than 0! </span></td>
                 </c:if>
             </tr>
 
@@ -44,7 +44,7 @@
                     <form:input id="columns" class="form-control" path="columns" /></td>
                 <c:set var="second"><form:errors path="columns"/></c:set>
                 <c:if test="${not empty second}">
-                    <td><span  style="color:darkred">  Must be greater than 0! </span></td>
+                    <td style="vertical-align:middle;"><span  style="color:darkred;padding-left:10px">  Must be greater than 0! </span></td>
                 </c:if>
             </tr>
 
@@ -63,7 +63,7 @@
                     <form:input id="number" class="form-control" path="number" /></td>
                 <c:set var="third"><form:errors path="number"/></c:set>
                 <c:if test="${not empty third}">
-                    <td> <span  style="color:darkred">  Can not be empty! </span> </td>
+                    <td> <span  style="color:darkred;vertical-align:center;padding-left:10px">  Can not be empty! </span> </td>
                 </c:if>
             </tr>
 

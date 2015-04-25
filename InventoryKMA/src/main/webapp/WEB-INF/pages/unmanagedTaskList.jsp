@@ -20,15 +20,18 @@
 </head>
 <body>
 <jsp:include page="header.jsp"/>
-<div class="container">
+
+<div class="container" style="text-align:center;width:400px;">
     <h3>Umnanaged tasks</h3>
-    <ul>
-        <c:forEach items="${tasks}" var="task">
-            <li>
-                <a href="/admin/task/manage/${task.id}">  ${task.message}</a>
-            </li>
-        </c:forEach>
-    </ul>
+    <div style="margin:auto;padding:auto;">
+        <ul class="list-group">
+            <c:forEach items="${tasks}" var="task">
+                <li class="list-group-item">
+                    <a href="/admin/task/manage/${task.id}">  ${task.message}</a>
+                </li>
+            </c:forEach>
+        </ul>
+    </div>
 </div>
 <jsp:include page="footer.jsp"/>
 </body>

@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.validation.Valid;
 import java.security.Principal;
 import java.util.ArrayList;
 import java.util.List;
@@ -58,8 +59,14 @@ public class TaskController {
     }
 
     @RequestMapping(value = "/admin/task/add", method = RequestMethod.POST,name = "add")
-    public String addTask(@ModelAttribute("task") Task task,
+    public String addTask(ModelMap model, @Valid @ModelAttribute("task") Task task,
                           BindingResult result) {
+        if(result.hasErrors()){
+            List<User> users = userService.getUsersByRoleName("ROLE_ASSISTANT");
+            model.addAttribute("users",users);
+            return "task";
+        }
+
 //        //logged in user
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
         String email = auth.getName(); //get logged in email

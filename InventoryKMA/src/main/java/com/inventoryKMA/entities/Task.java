@@ -1,6 +1,8 @@
 package com.inventoryKMA.entities;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 
 @Entity
 @Table(name = "task")
@@ -20,6 +22,8 @@ public class Task {
         this.userTo = userTo;
     }
 
+    @NotNull
+    @Size(min=1)
     @Column(name = "message")
     private String message;
 

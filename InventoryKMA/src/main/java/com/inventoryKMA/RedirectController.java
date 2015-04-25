@@ -20,7 +20,7 @@ public class RedirectController {
             return "redirect:/assistant/cabinet";
         }
         else if (request.isUserInRole("ROLE_USER")) {
-            return "redirect:/assistant/cabinet";
+            return "redirect:/user/cabinet";
         }
         return "redirect:/";
     }

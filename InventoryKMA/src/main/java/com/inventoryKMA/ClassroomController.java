@@ -49,9 +49,11 @@ public class ClassroomController {
     }
 
     @RequestMapping(value="admin/classroom/add",method = RequestMethod.POST)
-    public String addClassroom(@ModelAttribute("classroom") @Valid Classroom classroom,
+    public String addClassroom(ModelMap model,@ModelAttribute("classroom") @Valid Classroom classroom,
                                BindingResult result) {
         if (result.hasErrors()) {
+            List<User> users = userService.getUsersByRoleName("ROLE_ASSISTANT");
+            model.addAttribute("users",users);
             return "classroom";
         }
 

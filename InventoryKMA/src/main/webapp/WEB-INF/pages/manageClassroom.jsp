@@ -27,7 +27,7 @@
         Managing classroom
     </h3>
     <form:form style="margin:auto;padding:auto;" method="post" action="/admin/classroom/save" commandName="classroom">
-        <table>
+        <table style="text-align:left;margin:auto;padding:auto;">
 
             <tr>
                 <td>

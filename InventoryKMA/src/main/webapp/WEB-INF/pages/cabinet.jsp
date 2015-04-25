@@ -7,6 +7,7 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -21,8 +22,13 @@
 <body>
 <jsp:include page="header.jsp"/>
 <div class="container">
+    <sec:authorize ifAnyGranted="ROLE_ADMIN">
+        admin in the cabinet
+    </sec:authorize>
 
-    In the cabinet...
+    <sec:authorize ifAnyGranted="ROLE_USER">
+        form
+    </sec:authorize>
 
 </div>
 <jsp:include page="footer.jsp"/>

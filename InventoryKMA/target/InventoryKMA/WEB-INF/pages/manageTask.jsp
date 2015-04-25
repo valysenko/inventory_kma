@@ -14,12 +14,12 @@
 </head>
 <body>
 <jsp:include page="header.jsp"/>
-<div class="container" style="width:280px;text-align:center">
+<div class="container" style="width:400px;text-align:center">
     <h3>
         Manage task
     </h3>
     <form:form style="margin:auto;padding:auto;" method="post" action="/admin/task/save" commandName="task">
-        <table>
+        <table style="text-align:left;margin:auto;padding:auto;">
             <tr>
                 <td style="margin-top:10px">
                     <form:hidden path="id"/>

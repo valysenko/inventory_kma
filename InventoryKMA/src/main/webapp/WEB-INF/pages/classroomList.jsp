@@ -20,14 +20,18 @@
 </head>
 <body>
 <jsp:include page="header.jsp"/>
-<div class="container">
-    <ul>
-        <c:forEach items="${classrooms}" var="classroom">
-            <li>
-                  <a href="/admin/classroom/${classroom.number}">  ${classroom.number}</a>
-            </li>
-        </c:forEach>
-    </ul>
+<div class="container" style="text-align:center;width:400px;">
+    <h3>Classroom list</h3>
+    <div style="margin:auto;padding:auto;">
+
+        <ul class="list-group">
+            <c:forEach items="${classrooms}" var="classroom">
+                <li class="list-group-item">
+                      <a href="/admin/classroom/${classroom.number}"> Classroom ${classroom.number}</a>
+                </li>
+            </c:forEach>
+        </ul>
+    </div>
 </div>
 <jsp:include page="footer.jsp"/>
 </body>
