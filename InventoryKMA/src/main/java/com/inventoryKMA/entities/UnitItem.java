@@ -1,6 +1,8 @@
 package com.inventoryKMA.entities;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 
 @Entity
 @Table(name = "unit_item")
@@ -25,6 +27,8 @@ public class UnitItem {
     @JoinColumn(name = "workplace_id")
     private Workplace workplace;
 
+    @Size(min=1)
+    @NotNull
     private String number;
 
     public Integer getId() {

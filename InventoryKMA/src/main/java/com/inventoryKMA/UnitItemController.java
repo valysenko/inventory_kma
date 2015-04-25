@@ -12,6 +12,7 @@ import org.springframework.ui.ModelMap;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.List;
 
 /**
@@ -36,11 +37,15 @@ public class UnitItemController {
     }
 
     @RequestMapping(value="/admin/unit/add",method = RequestMethod.POST)
-    public String addUnitItem(ModelMap model,@RequestParam("type") String type,
-                              @ModelAttribute("item") UnitItem unitItem,
+    public String addUnitItem(@RequestParam("type") String type,
                               @ModelAttribute("id") Integer id,
                               @ModelAttribute("classroom_number") String classroom_number,
+                              @Valid @ModelAttribute("item")  UnitItem unitItem,
                               BindingResult result){
+        if (result.hasErrors()) {
+            return "unitItem";
+        }
+
         unitItemService.addItem(unitItem,id,type);
         return "redirect:/admin/classroom/"+classroom_number;
     }

@@ -14,13 +14,17 @@
 </head>
 <body>
 <jsp:include page="header.jsp"/>
-<div class="container" style="margin:auto;padding:auto;width:400px;text-align:center">
+<div style="margin:auto;padding:auto;width:400px;text-align:center">
 
     <form:form method="post" action="/admin/unit/add" commandName="item" class="form-horizontal">
         <table>
             <tr style="text-align:center">
                 <td style="text-align:center">
                     <form:input path="number" class="form-control" placeholder=" Number"/>
+                     <c:set var="first"><form:errors path="number"/></c:set>
+                        <c:if test="${not empty first}">
+                            <td>Cannot be empty!</td>
+                        </c:if>
                     <input type="hidden" name="id" value="${id}"/>
                     <input type="hidden" name="classroom_number" value="${classroom_number}"/>
                 </td>

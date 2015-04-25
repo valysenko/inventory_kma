@@ -36,6 +36,10 @@
             </tr>
             <tr>
                 <td>Number: <form:input path="number" /></td>
+                <c:set var="third"><form:errors path="number"/></c:set>
+                <c:if test="${not empty third}">
+                    <td>Cannot be empty!</td>
+                </c:if>
             </tr>
 
             <tr>
