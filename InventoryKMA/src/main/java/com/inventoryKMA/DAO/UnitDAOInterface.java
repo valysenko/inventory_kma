@@ -8,4 +8,6 @@ public interface UnitDAOInterface {
     public void addUnit(Unit unit);
 
     public Unit getUnit(int id);
+
+    public Unit getUnitByName(String name);
 }

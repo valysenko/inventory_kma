@@ -112,7 +112,7 @@
                               </c:forEach>
                           </div>
                           <span style="display:table-cell;vertical-align:bottom;text-align:center">
-                              <a href="/admin/unit/add/${workplace.id}">add</a>
+                              <a href="/admin/unit/new/${classroom.number}/${workplace.id}">add</a>
                           </span>
                     </div>
                     <c:if test="${workplace.sequenceNumber%classroom.columns == 0}">
