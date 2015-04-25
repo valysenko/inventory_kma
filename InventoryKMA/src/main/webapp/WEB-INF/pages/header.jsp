@@ -34,6 +34,12 @@
             <li>
                 <a href="<c:url value="/admin/classroom/list"/>">Classroom list</a>
             </li>
+            <li>
+                <a href="<c:url value="/admin/assistant/list"/>">Assistant list</a>
+            </li>
+            <li>
+                <a href="<c:url value="/admin/classroom/unmanaged"/>">Unmanaged classrooms</a>
+            </li>
         </ul>
     </sec:authorize>
 

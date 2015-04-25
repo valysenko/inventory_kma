@@ -1,5 +1,6 @@
 package com.inventoryKMA.DAO;
 
+import com.inventoryKMA.entities.Classroom;
 import com.inventoryKMA.entities.Role;
 import com.inventoryKMA.entities.Task;
 import com.inventoryKMA.entities.User;
@@ -48,7 +49,23 @@ public class UserDAO implements UserDAOInterface{
 
 
     @Override
-    public void deleteUser(User user) {
+    public void deleteUser(int id) {
+
+        //method not actually deleates user, it changes role from ROLE_ASSISTANT to ROLE_USER
+
+            User user = (User) currentSession().load(User.class,id);//getUserById(id);
+            Role role = roleDAO.getRoleByName("ROLE_USER");
+            user.setRole(role);
+            for(Classroom classroom :user.getClassrooms()){
+                classroom.setUser(null);
+            }
+            for(Task task : user.getTasks()){
+                task.setUserTo(null);
+            }
+            currentSession().save(user);
+
+
+           // currentSession().flush();
 
     }
 

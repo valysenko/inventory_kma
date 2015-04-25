@@ -13,11 +13,12 @@ public interface UserDAOInterface {
 
     public User getUserById(int id);
 
-    public void deleteUser(User user);
+    public void deleteUser(int id);
 
     public List getUsers();
 
     public User getUserByEmail(String email);
 
     public List<User> getUsersByRoleName(String name);
+
 }

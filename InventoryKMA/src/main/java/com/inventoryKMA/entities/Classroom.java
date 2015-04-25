@@ -31,7 +31,7 @@ public class Classroom {
     private List<Workplace> workplaces;
 
     @ManyToOne
-    @JoinColumn(name = "user_id")
+    @JoinColumn(name = "user_id",nullable = true)
     private User user;
 
     public User getUser() {

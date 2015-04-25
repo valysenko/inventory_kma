@@ -23,4 +23,9 @@ public class UserService implements UserServiceInterface{
     public User getUserById(Integer id){
         return userDAO.getUserById(id);
     }
+
+    @Override
+    public void deleteUser(int id){
+        userDAO.deleteUser(id);
+    }
 }
