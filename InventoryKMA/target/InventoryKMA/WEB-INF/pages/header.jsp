@@ -32,7 +32,7 @@
                 <a href="<c:url value="/admin/classroom/new"/>">Add classroom</a>
             </li>
             <li>
-                <a href="<c:url value="/admin/classrooms"/>">Classroom list</a>
+                <a href="<c:url value="/admin/classroom/list"/>">Classroom list</a>
             </li>
         </ul>
     </sec:authorize>

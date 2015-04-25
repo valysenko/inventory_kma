@@ -1,27 +1,40 @@
 package com.inventoryKMA.services;
 
-import org.springframework.mail.MailSender;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.mail.MessagingException;
+import javax.mail.internet.MimeMessage;
 import org.springframework.mail.SimpleMailMessage;
+import org.springframework.mail.javamail.JavaMailSender;
+import org.springframework.mail.javamail.MimeMessageHelper;
 
-/**
- * Created by Vladyslav on 06.04.2015.
- */
+
 public class EmailSenderService {
 
-    private MailSender mailSender;
+    private JavaMailSender mailSender;
 
-    public void setMailSender(MailSender mailSender) {
+    public void setMailSender(JavaMailSender mailSender) {
         this.mailSender = mailSender;
     }
 
     public void sendMail(String from, String to, String subject, String msg) {
+        try {
 
-        SimpleMailMessage message = new SimpleMailMessage();
+            MimeMessage message = mailSender.createMimeMessage();
 
-        message.setFrom(from);
-        message.setTo(to);
-        message.setSubject(subject);
-        message.setText(msg);
-        mailSender.send(message);
+            message.setSubject(subject);
+            MimeMessageHelper helper;
+            helper = new MimeMessageHelper(message, true);
+            helper.setFrom(from);
+            helper.setTo(to);
+            helper.setText(msg, true);
+            mailSender.send(message);
+        } catch (MessagingException ex) {
+            Logger.getLogger(EmailSenderService.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
+
+
 }
+
+

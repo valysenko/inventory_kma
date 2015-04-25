@@ -12,9 +12,6 @@ import org.springframework.stereotype.Repository;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * Created by Vladyslav on 03.03.2015.
- */
 @Repository
 public class TaskDAO implements TaskDAOInterface {
 
@@ -39,20 +36,28 @@ public class TaskDAO implements TaskDAOInterface {
         task.setUserFrom(user);
 
         currentSession().save(task);
-
+        String message = task.getMessage();
+       String html = "<div style='height:120px;width:320px;\n" +
+               "background-color:#3333FF; color:white; font-size:35px;\n" +
+               "display:table-cell;vertical-align:bottom;'>\n" +
+               " NaUKMA</div>\n" +
+               "<div style='background-color:floralwhite;text-align:left;padding-left:5px;color:#000000;width:313px; height:150px;\n" +
+               "border-bottom:3px solid #3366FF;\n" +
+               "border-left: 1px dotted #3366FF;\n" +
+               "border-right: 1px dotted #3366FF;'><br>"+message+"<br><br>\n" +
+               "</div> ";
         //sending an email
         emailSenderService.sendMail("inventorykma@gmail.com",
                 task.getUserTo().getEmail(),
-                "A new task for you",
-                task.getMessage());
+                "A new task for you",html);
     }
 
     @Override
-    public List<Task> getTasksOfUser(String email){
+    public List<Task> getTasksOfUser(String email) {
         User user = userDao.getUserByEmail(email);
 
         List<Task> taskList = new ArrayList<Task>();
-        Query query = currentSession().createQuery("from Task t where t.userTo = :user");
+        Query query = currentSession().createQuery("from task t where t.userTo = :user");
         query.setParameter("user", user);
         taskList = query.list();
         return taskList;
