@@ -81,7 +81,7 @@ public class TaskController {
     }
 
     @RequestMapping(value = "/assistant/task/finish/{id}", method = RequestMethod.GET)
-    public String finishTask(ModelMap model,@PathVariable int id) {
+     public String finishTask(ModelMap model,@PathVariable int id) {
 
         taskService.finishTask(id);
         return "redirect:/assistant/tasks";

@@ -15,7 +15,7 @@
         <!--<intercept-url pattern="/add*" access="ROLE_ADMIN" />-->
         <!--<intercept-url pattern="/delete/*" access="ROLE_ADMIN" />-->
 
-        <form-login login-page="/user-login" default-target-url="/index"
+        <form-login login-page="/login" default-target-url="/index"
                     authentication-failure-url="/error-login.html" />
         <logout logout-url="/logout" logout-success-url="/" />
         <anonymous username="guest" granted-authority="ROLE_ANONYMOUS" />

@@ -15,11 +15,15 @@ public class Classroom {
     private Integer id;
 
     @Min(1)
+    @NotNull
     private Integer rows;
 
     @Min(1)
+    @NotNull
     private Integer columns;
 
+    @Size(min=1)
+    @NotNull
     private String number;
 
 //    @Fetch(FetchMode.SELECT)

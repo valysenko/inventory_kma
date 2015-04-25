@@ -25,23 +25,22 @@
 
 
     <!--jdbc bean configuration-->
-    <!--<bean id="dataSource" class="org.apache.commons.dbcp2.BasicDataSource">-->
-        <!--<property name="driverClassName" value="com.mysql.jdbc.Driver" />-->
-        <!--<property name="url" value="jdbc:mysql://localhost:3306/inventory_kma" />-->
-        <!--<property name="username" value="root" />-->
-        <!--<property name="password" value="" />-->
-        <!--<property name="initialSize" value="5" />-->
-        <!--<property name="maxTotal" value="10" />-->
-    <!--</bean>-->
-
     <bean id="dataSource" class="org.apache.commons.dbcp2.BasicDataSource">
         <property name="driverClassName" value="com.mysql.jdbc.Driver" />
         <property name="url" value="jdbc:mysql://localhost:3306/inventory_kma" />
         <property name="username" value="root" />
-        <property name="password" value="root" />
+        <property name="password" value="" />
         <property name="initialSize" value="5" />
         <property name="maxTotal" value="10" />
     </bean>
+    <!--<bean id="dataSource" class="org.apache.commons.dbcp2.BasicDataSource">-->
+        <!--<property name="driverClassName" value="com.mysql.jdbc.Driver" />-->
+        <!--<property name="url" value="jdbc:mysql://localhost:3306/inventory_kma" />-->
+        <!--<property name="username" value="root" />-->
+        <!--<property name="password" value="root" />-->
+        <!--<property name="initialSize" value="5" />-->
+        <!--<property name="maxTotal" value="10" />-->
+    <!--</bean>-->
 
     <!--SimpleJdbcTemplate for jdbc-->
     <bean id="jdbcTemplate" class="org.springframework.jdbc.core.simple.SimpleJdbcTemplate">
@@ -82,6 +81,9 @@
     </bean>
 
     <bean id="classroomService" class="com.inventoryKMA.services.ClassroomService">
+    </bean>
+
+    <bean id="unitItemService" class="com.inventoryKMA.services.UnitItemService">
     </bean>
 
     <bean id="userEditor" class="com.inventoryKMA.services.UserEditor">

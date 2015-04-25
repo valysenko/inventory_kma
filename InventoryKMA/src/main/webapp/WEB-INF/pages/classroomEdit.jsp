@@ -14,92 +14,10 @@
 </head>
 <body>
 <jsp:include page="header.jsp"/>
-
-<%--<div class="container">--%>
-    <%--<div class="row">--%>
-        <%--<div class="col-md-6 col-md-offset-3">--%>
-            <%--<div class="panel panel-login">--%>
-                <%--<div class="panel-heading">--%>
-                    <%--<div class="row">--%>
-                        <%--<div class="col-xs-6">--%>
-                            <%--<a href="#" class="active" id="login-form-link">List</a>--%>
-                        <%--</div>--%>
-                        <%--<div class="col-xs-6">--%>
-                            <%--<a href="#" id="register-form-link">Add</a>--%>
-                        <%--</div>--%>
-                    <%--</div>--%>
-                    <%--<hr>--%>
-                <%--</div>--%>
-                <%--<div class="panel-body">--%>
-                    <%--<div class="row">--%>
-                        <%--<div class="col-lg-12">--%>
-                            <%--<div id="login-form">--%>
-                                <%--first--%>
-                            <%--</div>--%>
-
-                            <%--<div id="register-form">--%>
-                                <%--second--%>
-                            <%--</div>--%>
-                            <%--&lt;%&ndash;<form id="login-form" action="http://phpoll.com/login/process" method="post" role="form" style="display: block;">&ndash;%&gt;--%>
-                                <%--&lt;%&ndash;<div class="form-group">&ndash;%&gt;--%>
-                                    <%--&lt;%&ndash;<input type="text" name="username" id="username" tabindex="1" class="form-control" placeholder="Username" value="">&ndash;%&gt;--%>
-                                <%--&lt;%&ndash;</div>&ndash;%&gt;--%>
-                                <%--&lt;%&ndash;<div class="form-group">&ndash;%&gt;--%>
-                                    <%--&lt;%&ndash;<input type="password" name="password" id="password" tabindex="2" class="form-control" placeholder="Password">&ndash;%&gt;--%>
-                                <%--&lt;%&ndash;</div>&ndash;%&gt;--%>
-                                <%--&lt;%&ndash;<div class="form-group text-center">&ndash;%&gt;--%>
-                                    <%--&lt;%&ndash;<input type="checkbox" tabindex="3" class="" name="remember" id="remember">&ndash;%&gt;--%>
-                                    <%--&lt;%&ndash;<label for="remember"> Remember Me</label>&ndash;%&gt;--%>
-                                <%--&lt;%&ndash;</div>&ndash;%&gt;--%>
-                                <%--&lt;%&ndash;<div class="form-group">&ndash;%&gt;--%>
-                                    <%--&lt;%&ndash;<div class="row">&ndash;%&gt;--%>
-                                        <%--&lt;%&ndash;<div class="col-sm-6 col-sm-offset-3">&ndash;%&gt;--%>
-                                            <%--&lt;%&ndash;<input type="submit" name="login-submit" id="login-submit" tabindex="4" class="form-control btn btn-login" value="Log In">&ndash;%&gt;--%>
-                                        <%--&lt;%&ndash;</div>&ndash;%&gt;--%>
-                                    <%--&lt;%&ndash;</div>&ndash;%&gt;--%>
-                                <%--&lt;%&ndash;</div>&ndash;%&gt;--%>
-                                <%--&lt;%&ndash;<div class="form-group">&ndash;%&gt;--%>
-                                    <%--&lt;%&ndash;<div class="row">&ndash;%&gt;--%>
-                                        <%--&lt;%&ndash;<div class="col-lg-12">&ndash;%&gt;--%>
-                                            <%--&lt;%&ndash;<div class="text-center">&ndash;%&gt;--%>
-                                                <%--&lt;%&ndash;<a href="http://phpoll.com/recover" tabindex="5" class="forgot-password">Forgot Password?</a>&ndash;%&gt;--%>
-                                            <%--&lt;%&ndash;</div>&ndash;%&gt;--%>
-                                        <%--&lt;%&ndash;</div>&ndash;%&gt;--%>
-                                    <%--&lt;%&ndash;</div>&ndash;%&gt;--%>
-                                <%--&lt;%&ndash;</div>&ndash;%&gt;--%>
-                            <%--&lt;%&ndash;</form>&ndash;%&gt;--%>
-                            <%--&lt;%&ndash;<form id="register-form" action="http://phpoll.com/register/process" method="post" role="form" style="display: none;">&ndash;%&gt;--%>
-                                <%--&lt;%&ndash;<div class="form-group">&ndash;%&gt;--%>
-                                    <%--&lt;%&ndash;<input type="text" name="username" id="username" tabindex="1" class="form-control" placeholder="Username" value="">&ndash;%&gt;--%>
-                                <%--&lt;%&ndash;</div>&ndash;%&gt;--%>
-                                <%--&lt;%&ndash;<div class="form-group">&ndash;%&gt;--%>
-                                    <%--&lt;%&ndash;<input type="email" name="email" id="email" tabindex="1" class="form-control" placeholder="Email Address" value="">&ndash;%&gt;--%>
-                                <%--&lt;%&ndash;</div>&ndash;%&gt;--%>
-                                <%--&lt;%&ndash;<div class="form-group">&ndash;%&gt;--%>
-                                    <%--&lt;%&ndash;<input type="password" name="password" id="password" tabindex="2" class="form-control" placeholder="Password">&ndash;%&gt;--%>
-                                <%--&lt;%&ndash;</div>&ndash;%&gt;--%>
-                                <%--&lt;%&ndash;<div class="form-group">&ndash;%&gt;--%>
-                                    <%--&lt;%&ndash;<input type="password" name="confirm-password" id="confirm-password" tabindex="2" class="form-control" placeholder="Confirm Password">&ndash;%&gt;--%>
-                                <%--&lt;%&ndash;</div>&ndash;%&gt;--%>
-                                <%--&lt;%&ndash;<div class="form-group">&ndash;%&gt;--%>
-                                    <%--&lt;%&ndash;<div class="row">&ndash;%&gt;--%>
-                                        <%--&lt;%&ndash;<div class="col-sm-6 col-sm-offset-3">&ndash;%&gt;--%>
-                                            <%--&lt;%&ndash;<input type="submit" name="register-submit" id="register-submit" tabindex="4" class="form-control btn btn-register" value="Register Now">&ndash;%&gt;--%>
-                                        <%--&lt;%&ndash;</div>&ndash;%&gt;--%>
-                                    <%--&lt;%&ndash;</div>&ndash;%&gt;--%>
-                                <%--&lt;%&ndash;</div>&ndash;%&gt;--%>
-                            <%--&lt;%&ndash;</form>&ndash;%&gt;--%>
-                        <%--</div>--%>
-                    <%--</div>--%>
-                <%--</div>--%>
-            <%--</div>--%>
-        <%--</div>--%>
-    <%--</div>--%>
-<%--</div>--%>
-    <div style="text-align:center;margin:auto;padding:auto;">
+    <div style="text-align:center;">
    <%--style="border:1px solid darkslategray;border-radius: 3px;"--%>
     <h2>${classroom.number} edit</h2>
-        <div style="margin-bottom:50px;text-align:center;overflow-x:scroll;">
+        <div style="margin-bottom:50px;text-align:center;margin:auto;padding:auto;">
 
                 <c:forEach items="${classroom.workplaces}" var="workplace">
 
@@ -112,7 +30,7 @@
                               </c:forEach>
                           </div>
                           <span style="display:table-cell;vertical-align:bottom;text-align:center">
-                              <a href="/admin/unit/add/${workplace.id}">add</a>
+                              <a href="/admin/unit/new/${classroom.number}/${workplace.id}">add</a>
                           </span>
                     </div>
                     <c:if test="${workplace.sequenceNumber%classroom.columns == 0}">

@@ -14,7 +14,10 @@ public class UnitDAO implements UnitDAOInterface {
     private static final String SQL_INSERT_UNIT =
             "insert into inventory_kma.unit (name) values (?)";
     private static final String SQL_SELECT_UNIT_BY_ID =
-            "select id, name, number from inventory_kma where id = ?";
+            "select id, name from inventory_kma.unit where id = ?";
+
+    private static final String SQL_SELECT_UNIT_BY_NAME =
+            "select id, name from inventory_kma.unit where name = ?";
 
 
     @Autowired
@@ -30,13 +33,27 @@ public class UnitDAO implements UnitDAOInterface {
                 new ParameterizedRowMapper<Unit>() {
 
                     public Unit mapRow(ResultSet rs, int rowNum) throws SQLException {
-                        Unit student = new Unit();
-                        student.setId(rs.getInt(1));
-                        student.setName(rs.getString(2));
-                        return student;
+                        Unit unit = new Unit();
+                        unit.setId(rs.getInt(1));
+                        unit.setName(rs.getString(2));
+                        return unit;
                     }
 
                 }, id);
+    }
+
+    public Unit getUnitByName(String name) {
+        return jdbcTemplate.queryForObject(SQL_SELECT_UNIT_BY_NAME,
+                new ParameterizedRowMapper<Unit>() {
+
+                    public Unit mapRow(ResultSet rs, int rowNum) throws SQLException {
+                        Unit unit = new Unit();
+                        unit.setId(rs.getInt(1));
+                        unit.setName(rs.getString(2));
+                        return unit;
+                    }
+
+                }, name);
     }
 
 }

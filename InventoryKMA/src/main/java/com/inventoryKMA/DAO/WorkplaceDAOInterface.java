@@ -1,5 +1,6 @@
 package com.inventoryKMA.DAO;
 
+import com.inventoryKMA.entities.User;
 import com.inventoryKMA.entities.Workplace;
 import org.springframework.stereotype.Repository;
 
@@ -10,4 +11,5 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface WorkplaceDAOInterface {
     public void addWorkspace(Workplace workplace);
+    public Workplace geWorkplaceById(int id);
 }
