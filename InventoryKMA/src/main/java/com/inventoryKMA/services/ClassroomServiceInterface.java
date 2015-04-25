@@ -11,4 +11,8 @@ public interface ClassroomServiceInterface {
     public List<Classroom> getAllClassrooms();
 
     public Classroom getClassroomByNumber(String number);
+
+    public List<Classroom> getUnmanagedClassrooms();
+
+    public void saveClassroom(Classroom classroom);
 }

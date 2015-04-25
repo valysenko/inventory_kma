@@ -20,4 +20,6 @@ public interface TaskDAOInterface {
     public List<Task> getTasksOfUser(String email);
 
     public void finishTask(int id);
+
+    public  List<Task> getUnmanagedTasks();
 }

@@ -10,4 +10,5 @@ public interface TaskServiceInterface {
     public void saveTask(Task task);
     public List<Task> getTasksOfUser(String email);
     public  void finishTask(int id);
+    public  List<Task> getUnmanagedTasks();
 }

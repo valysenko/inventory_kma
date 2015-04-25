@@ -1,5 +1,6 @@
 package com.inventoryKMA.DAO;
 
+import com.inventoryKMA.entities.Classroom;
 import com.inventoryKMA.entities.Task;
 import com.inventoryKMA.entities.User;
 import com.inventoryKMA.services.EmailSenderService;
@@ -28,6 +29,14 @@ public class TaskDAO implements TaskDAOInterface {
         return sessionFactory.getCurrentSession();
     }
 
+    @Override
+    public  List<Task> getUnmanagedTasks(){
+        List<Task> taskList = new ArrayList<Task>();
+        Query query = currentSession().createQuery("from Task t where t.userTo is EMPTY and t.status=:status");
+        query.setParameter("status","in progress");
+        taskList = query.list();
+        return taskList;
+    }
 
     @Override
     public void addTask(String email,Task task) {
@@ -77,6 +86,8 @@ public class TaskDAO implements TaskDAOInterface {
 
     @Override
     public void saveTask(Task task) {
-        currentSession().update(task);
+        Task t = (Task) currentSession().load(Task.class, task.getId());
+        t.setUserTo(task.getUserTo());
+        currentSession().save(t);
     }
 }

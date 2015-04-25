@@ -49,8 +49,8 @@ public class ClassroomController {
     }
 
     @RequestMapping(value="admin/classroom/add",method = RequestMethod.POST)
-     public String addClassroom(@ModelAttribute("classroom") @Valid Classroom classroom,
-                                BindingResult result) {
+    public String addClassroom(@ModelAttribute("classroom") @Valid Classroom classroom,
+                               BindingResult result) {
         if (result.hasErrors()) {
             return "classroom";
         }
@@ -66,8 +66,32 @@ public class ClassroomController {
         return "classroomList";
     }
 
+    @RequestMapping(value = "/admin/classroom/unmanaged/list", method = RequestMethod.GET)
+     public String unmanagedClassroomList(ModelMap model) {
+
+        model.addAttribute("classrooms", classroomService.getUnmanagedClassrooms());
+        return "unmanagedClassroomList";
+    }
+
+    @RequestMapping(value = "/admin/classroom/manage/{number}", method = RequestMethod.GET)
+    public String manageClassroom(ModelMap model,@PathVariable String number) {
+        Classroom classroom = classroomService.getClassroomByNumber(number);
+
+        List<User> users = userService.getUsersByRoleName("ROLE_ASSISTANT");
+        model.addAttribute("users",users);
+        model.addAttribute("classroom", classroom);
+        return "manageClassroom";
+    }
+
+    @RequestMapping(value = "/admin/classroom/save", method = RequestMethod.POST)
+    public String manageClassroomSave(@ModelAttribute("classroom") Classroom classroom,
+                                      BindingResult result) {
+        classroomService.saveClassroom(classroom);
+        return "redirect:/admin/classroom/unmanaged/list";
+    }
+
     @RequestMapping(value = "/admin/classroom/{number}", method = RequestMethod.GET)
-    public String getC(ModelMap model, @PathVariable String number) {
+    public String getClassroom(ModelMap model, @PathVariable String number) {
         Classroom classroom = classroomService.getClassroomByNumber(number);
         model.addAttribute("classroom", classroom);
         return "classroomEdit";

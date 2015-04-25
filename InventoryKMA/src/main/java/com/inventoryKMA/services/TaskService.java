@@ -40,4 +40,8 @@ public class TaskService  implements TaskServiceInterface{
         return taskDAO.getTasksOfUser(email);
     }
 
+    @Override public  List<Task> getUnmanagedTasks(){
+        return taskDAO.getUnmanagedTasks();
+    }
+
 }

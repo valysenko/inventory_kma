@@ -80,6 +80,31 @@ public class TaskController {
         return "taskList";
     }
 
+    @RequestMapping(value = "/admin/task/unmanaged/list", method = RequestMethod.GET)
+    public String unmanagedTasksList(ModelMap model) {
+
+        model.addAttribute("tasks",taskService.getUnmanagedTasks());
+        return "unmanagedTaskList";
+    }
+
+    @RequestMapping(value = "/admin/task/manage/{id}", method = RequestMethod.GET)
+    public String manageTask(ModelMap model,@PathVariable Integer id) {
+        Task task = taskService.getTaskById(id);
+
+        List<User> users = userService.getUsersByRoleName("ROLE_ASSISTANT");
+        model.addAttribute("users",users);
+        model.addAttribute("task", task);
+        return "manageTask";
+    }
+
+    @RequestMapping(value = "/admin/task/save", method = RequestMethod.POST)
+    public String manageClassroomSave(@ModelAttribute("task") Task task,
+                                      BindingResult result) {
+        taskService.saveTask(task);
+        return "redirect:/admin/task/unmanaged/list";
+    }
+
+
     @RequestMapping(value = "/assistant/task/finish/{id}", method = RequestMethod.GET)
      public String finishTask(ModelMap model,@PathVariable int id) {
 

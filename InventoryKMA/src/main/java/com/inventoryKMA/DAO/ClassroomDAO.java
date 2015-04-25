@@ -31,20 +31,20 @@ public class ClassroomDAO implements ClassroomDAOInterface{
 
     @Override
     public List<Classroom> getAllClassrooms() {
-        List<Classroom> userList = new ArrayList<Classroom>();
+        List<Classroom> classroomList = new ArrayList<Classroom>();
         Query query = currentSession().createQuery("from Classroom");
-        userList = query.list();
-        return userList;
+        classroomList = query.list();
+        return classroomList;
     }
 
     @Override
     public Classroom getClassroomByNumber(String number) {
-        List<Classroom> userList = new ArrayList<Classroom>();
+        List<Classroom> classroomList = new ArrayList<Classroom>();
         Query query = currentSession().createQuery("from Classroom cl where cl.number = :number");
         query.setParameter("number", number);
-        userList = query.list();
-        if (userList.size() > 0)
-            return userList.get(0);
+        classroomList = query.list();
+        if (classroomList.size() > 0)
+            return classroomList.get(0);
         else
             return null;
     }
@@ -57,5 +57,18 @@ public class ClassroomDAO implements ClassroomDAOInterface{
             workplace.setClassroom(classroom);
             workplaceDAO.addWorkspace(workplace);
         }currentSession().save(classroom);
+    }
+
+    public  List<Classroom> getUnmanagedClassrooms(){
+        List<Classroom> classroomList = new ArrayList<Classroom>();
+        Query query = currentSession().createQuery("from Classroom cl where cl.user is EMPTY ");
+        classroomList = query.list();
+        return classroomList;
+    }
+
+    public void saveClassroom(Classroom classroom){
+        Classroom cl = (Classroom) currentSession().load(Classroom.class,classroom.getId());
+        cl.setUser(classroom.getUser());
+        currentSession().save(cl);
     }
 }

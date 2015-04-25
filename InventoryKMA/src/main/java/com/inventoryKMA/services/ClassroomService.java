@@ -29,4 +29,14 @@ public class ClassroomService implements ClassroomServiceInterface{
     public Classroom getClassroomByNumber(String number) {
         return classroomDAO.getClassroomByNumber(number);
     }
+
+    @Override
+    public List<Classroom> getUnmanagedClassrooms(){
+        return classroomDAO.getUnmanagedClassrooms();
+    }
+
+    @Override
+    public void saveClassroom(Classroom classroom){
+        classroomDAO.saveClassroom(classroom);
+    }
 }
