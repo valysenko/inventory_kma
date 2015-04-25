@@ -3,6 +3,7 @@ package com.inventoryKMA.entities;
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Set;
 
 @Entity
 @Table(name = "users")
@@ -47,17 +48,14 @@ public class User {
     @JoinTable(name = "user_roles", joinColumns = { @JoinColumn(name = "user_id", referencedColumnName = "id") }, inverseJoinColumns = { @JoinColumn(name = "role_id", referencedColumnName = "id") })
     private Role role;
 
-    @ManyToMany
-    @JoinTable(name = "user_to_classroom",
-            joinColumns = @JoinColumn(name = "user_id"),
-            inverseJoinColumns = @JoinColumn(name = "classroom_id"))
-    private List<Classroom> classrooms;
+    @OneToMany(mappedBy="user",fetch = FetchType.EAGER)
+    private Set<Classroom> classrooms;
 
-    public List<Classroom> getClassrooms() {
+    public Set<Classroom> getClassrooms() {
         return classrooms;
     }
 
-    public void setClassrooms(List<Classroom> classrooms) {
+    public void setClassrooms(Set<Classroom> classrooms) {
         this.classrooms = classrooms;
     }
 

@@ -8,22 +8,37 @@
 </head>
 <body>
 <jsp:include page="header.jsp"/>
-<div class="container">
-    <form:form method="post" action="/admin/task/add" commandName="task">
+<div class="container" style="width:280px;text-align:center">
+    <h3>
+        New task
+    </h3>
+    <form:form style="margin:auto;padding:auto;" method="post" action="/admin/task/add" commandName="task">
         <table>
             <tr>
-                <td>Message: <form:textarea path="message" /></td>
+                <td>
+                    <label for="message">Message:</label>
+                    <form:textarea id="message" class="form-control" path="message" /></td>
             </tr>
             <tr>
-                <td>User to:
-                    <form:select path="userTo">
+                <td style="margin-top:10px">
+                    <label for="user">Assistant:</label>
+                    <form:select id="user" class="form-control" path="userTo">
                         <form:options items="${users}" itemValue="id"/>
                     </form:select>
                 </td>
             </tr>
 
             <tr>
-                <td><input type="submit"></td>
+                <td style="height:10px">
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <button type="submit" class="btn btn-default preview-add-button">
+                        <span class="glyphicon glyphicon-plus"></span> Add
+                    </button>
+                </td>
             </tr>
         </table>
     </form:form>
