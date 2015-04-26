@@ -28,11 +28,11 @@
   New message
   </h3>
   <form:form style="margin:auto;padding:auto;" method="post" action="/user/complaint/add" commandName="complaint">
-    <table>
+    <table style="text-align:left;margin:auto;padding:auto;">
       <tr>
         <td>
-          <label for="message">Message:</label>
-          <form:textarea id="message" class="form-control" path="message" /></td>
+          <label for="message"></label>
+          <form:textarea id="message" rows="8" cols="95" class="form-control" path="message" /></td>
         <c:set var="first"><form:errors path="message"/></c:set>
         <c:if test="${not empty first}">
           <td> <span  style="color:darkred;vertical-align:center;padding-left:10px">  Can not be empty! </span> </td>
