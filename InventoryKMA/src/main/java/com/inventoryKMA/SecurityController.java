@@ -23,4 +23,9 @@ public class SecurityController {
         return modelAndView;
     }
 
+    @RequestMapping(value = "/error403", method = RequestMethod.GET)
+    public String error403() {
+        return "error403";
+    }
+
 }

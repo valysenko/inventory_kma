@@ -15,6 +15,7 @@
 
 </head>
 <body>
-HTTP Status 403 - Access is denied
+HTTP Status 403 - Access is denied <br>
+<a href="/index"> go to cabinet</a>
 </body>
 </html>
