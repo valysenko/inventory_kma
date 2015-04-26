@@ -61,6 +61,9 @@
                     <li>
                         <a href="<c:url value="/admin/task/unmanaged/list"/>">Unmanaged tasks</a>
                     </li>
+                    <li>
+                        <a href = "<c:url value="/admin/complaint/list"/>"> All complaint </a>
+                    </li>
                 </ul>
             </li>
         </ul>
