@@ -45,6 +45,8 @@ public class User {
         return firstName + " " +lastName;
     }
 
+    @NotNull
+    @Size(min=1)
     private String password;
 
     public String getPassword() {

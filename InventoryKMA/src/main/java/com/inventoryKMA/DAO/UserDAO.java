@@ -8,8 +8,10 @@ import com.inventoryKMA.services.UserServiceInterface;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCrypt;
 import org.springframework.stereotype.Repository;
 import org.hibernate.Query;
+import java.security.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -34,7 +36,23 @@ public class UserDAO implements UserDAOInterface{
     public void addUser(User user) {
         Role role = roleDAO.getRoleByName("ROLE_USER");
         user.setRole(role);
-        user.setPassword("1");
+
+        // Hash a password for the first time
+        String hashed = BCrypt.hashpw(user.getPassword(), BCrypt.gensalt());
+
+        // gensalt's log_rounds parameter determines the complexity
+        // the work factor is 2**log_rounds, and the default is 10
+            //    String hashed = BCrypt.hashpw(password, BCrypt.gensalt(12));
+
+        // Check that an unencrypted password matches one that has
+        // previously been hashed
+//        if (BCrypt.checkpw(candidate, hashed))
+//            System.out.println("It matches");
+//        else
+//            System.out.println("It does not match");
+
+
+        user.setPassword(hashed);
         currentSession().save(user);
     }
 

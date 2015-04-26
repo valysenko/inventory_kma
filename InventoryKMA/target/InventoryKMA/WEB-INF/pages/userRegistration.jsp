@@ -52,6 +52,17 @@
 
             <tr>
                 <td>
+                    <label for="lastName">Password:</label>
+                    <form:password id="lastName" class="form-control" path="password" />
+                </td>
+                <c:set var="ps"><form:errors path="password"/></c:set>
+                <c:if test="${not empty ps}">
+                    <td> <span  style="color:darkred;vertical-align:center;padding-left:10px">  Can not be empty! </span> </td>
+                </c:if>
+            </tr>
+
+            <tr>
+                <td>
                     <label for="email">Email:</label>
                     <form:input id="email" class="form-control" path="email"  name="email"
                                 type="email"
