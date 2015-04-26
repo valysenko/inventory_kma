@@ -17,28 +17,6 @@
 <script src="<c:url value="/../resources/js/jquery-1.11.2.min.js" />"></script>
 <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
 </head>
-<%--<body>--%>
-
-<%--<jsp:include page="header.jsp"/>--%>
-<%--<div class="container">--%>
-  <%--<table >--%>
-    <%--<thead>--%>
-    <%--<tr>--%>
-      <%--<td>--%>
-        <%--Message--%>
-      <%--</td>--%>
-    <%--</tr>--%>
-    <%--</thead>--%>
-    <%--<c:forEach items="${complaint}" var="complaint">--%>
-      <%--<tr>--%>
-        <%--<td>${complaint.message}</td>--%>
-      <%--</tr>--%>
-    <%--</c:forEach>--%>
-  <%--</table>--%>
-<%--</div>--%>
-<%--<jsp:include page="footer.jsp"/>--%>
-<%--</body>--%>
-<%--</html>--%>
 <body>
 <jsp:include page="header.jsp"/>
 <div class="container" style="text-align:center;width:400px;">
