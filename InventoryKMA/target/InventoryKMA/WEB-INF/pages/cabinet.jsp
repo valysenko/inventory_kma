@@ -5,6 +5,7 @@
   Time: 11:56
   To change this template use File | Settings | File Templates.
 --%>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
@@ -26,9 +27,20 @@
         admin in the cabinet
     </sec:authorize>
 
+<<<<<<< HEAD
+<sec:authorize ifAnyGranted="ROLE_USER">
+  User in kabinet
+</sec:authorize>
+
+    <sec:authorize ifAnyGranted="ROLE_ADMIN">
+
+    </sec:authorize>
+
+=======
     <sec:authorize ifAnyGranted="ROLE_USER">
         form
     </sec:authorize>
+>>>>>>> origin/master
 
 </div>
 <jsp:include page="footer.jsp"/>
