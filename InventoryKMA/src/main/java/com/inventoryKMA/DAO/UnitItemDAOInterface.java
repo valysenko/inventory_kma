@@ -10,4 +10,6 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface UnitItemDAOInterface {
     public void addItem(UnitItem item, Integer workplaceId, String type);
+
+    public void deleteUnitItem(Integer id);
 }

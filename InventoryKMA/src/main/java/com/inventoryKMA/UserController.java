@@ -34,6 +34,13 @@ public class UserController {
         return "assistantList";
     }
 
+    @RequestMapping(value = "/admin/assistant/new", method = RequestMethod.GET)
+    public String userList(ModelMap model) {
+
+        model.addAttribute("users", userService.getUsersByRoleName("ROLE_USER"));
+        return "userList";
+    }
+
     @RequestMapping(value = "/admin/assistant/delete/{id}", method = RequestMethod.GET)
     public String deleteAssistant(ModelMap model,@PathVariable int id) {
 

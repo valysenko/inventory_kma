@@ -31,7 +31,31 @@
                         <%--units--%>
                           <div style="width:135px;display:table-cell;vertical-align: top;height:105px;text-align:center">
                               <c:forEach items="${workplace.units}" var="unit">
-                                  <img alt="number" style="margin:2px;width:30px;height:30px" src="/../resources/images/${unit.unit.name}.png"/>
+
+                                  <div
+                                       onmouseover =
+                                               "$('#img1${unit.id}').css('display','none');
+                                                $('#img2${unit.id}').css('display','inline-block');"
+                                       onmouseout =
+                                               " $('#img1${unit.id}').css('display','inline-block');
+                                                       $('#img2${unit.id}').css('display','none');
+                                                       "
+                                          >
+
+
+                                      <span id="img1${unit.id}" style="float:left;margin:2px;width:30px;height:30px">
+                                        <img  alt="number" style="width:30px;height:30px" src="/../resources/images/${unit.unit.name}.png"/>
+                                      </span>
+
+                                      <span id="img2${unit.id}" style="margin:2px;width:30px;height:30px;display:none; float:left">
+                                         <a href="/admin/unititem/delete/${classroom.number}/${unit.id}">
+                                             <button class="btn btn-danger btn-xs" data-title="Delete" data-toggle="modal"
+                                                  data-target="#delete" ><span class="glyphicon glyphicon-trash"></span>
+                                             </button>
+                                         </a>
+                                      </span>
+                                  </div>
+
                               </c:forEach>
                           </div>
                           <table style="text-align:center;width:130px">
@@ -41,6 +65,9 @@
                                   </td>
                               </tr>
                           </table>
+                            <%--<button class="btn btn-danger btn-xs" data-title="Delete" data-toggle="modal"--%>
+                                    <%--data-target="#delete" ><span class="glyphicon glyphicon-trash"></span>--%>
+                            <%--</button>--%>
                     </div>
                     <c:if test="${workplace.sequenceNumber%classroom.columns == 0}">
                         <div style="clear:left;height:0px;width:0px">

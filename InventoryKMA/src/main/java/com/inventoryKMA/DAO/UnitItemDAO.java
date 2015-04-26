@@ -36,4 +36,9 @@ public class UnitItemDAO implements UnitItemDAOInterface{
         currentSession().save(item);
     }
 
+    public void deleteUnitItem(Integer id){
+        UnitItem t = (UnitItem) currentSession().load(UnitItem.class,id);
+        currentSession().delete(t);
+    }
+
 }

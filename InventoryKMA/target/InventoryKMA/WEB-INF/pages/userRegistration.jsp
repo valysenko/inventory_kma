@@ -18,11 +18,6 @@
     <script src="<c:url value="/../resources/js/jquery-1.11.2.min.js" />"></script>
     <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
 
-    <script>
-        $(document).ready(function() {
-            $('#signInForm').formValidation();
-        });
-    </script>
 
 </head>
 <body>
@@ -36,9 +31,7 @@
             <tr>
                 <td>
                     <label for="firstName">First name:</label>
-                    <form:input id="firstName" class="form-control" path="firstName"
-                                
-                                data-fv-notempty-message="The username is required"/>
+                    <form:input id="firstName" class="form-control" path="firstName"/>
                 </td>
                 <c:set var="first"><form:errors path="firstName"/></c:set>
                 <c:if test="${not empty first}">

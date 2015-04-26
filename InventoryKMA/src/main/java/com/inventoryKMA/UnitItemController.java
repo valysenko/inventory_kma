@@ -37,16 +37,23 @@ public class UnitItemController {
     }
 
     @RequestMapping(value="/admin/unit/add",method = RequestMethod.POST)
-    public String addUnitItem(@RequestParam("type") String type,
-                              @ModelAttribute("id") Integer id,
-                              @ModelAttribute("classroom_number") String classroom_number,
-                              @Valid @ModelAttribute("item")  UnitItem unitItem,
-                              BindingResult result){
+     public String addUnitItem(@RequestParam("type") String type,
+                               @ModelAttribute("id") Integer id,
+                               @ModelAttribute("classroom_number") String classroom_number,
+                               @Valid @ModelAttribute("item")  UnitItem unitItem,
+                               BindingResult result){
         if (result.hasErrors()) {
             return "unitItem";
         }
 
         unitItemService.addItem(unitItem,id,type);
         return "redirect:/admin/classroom/"+classroom_number;
+    }
+
+    @RequestMapping(value="/admin/unititem/delete/{classsroom_number}/{id}",method = RequestMethod.GET)
+    public String deleteUnitItem(ModelMap model,@PathVariable Integer classsroom_number,@PathVariable Integer id){
+
+        unitItemService.deleteUnitItem(id);
+        return "redirect:/admin/classroom/"+classsroom_number;
     }
 }

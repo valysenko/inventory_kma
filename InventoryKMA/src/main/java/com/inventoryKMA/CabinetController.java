@@ -30,5 +30,4 @@ public class CabinetController {
         return "redirect:/user/complaint/new";
     }
 
-
 }

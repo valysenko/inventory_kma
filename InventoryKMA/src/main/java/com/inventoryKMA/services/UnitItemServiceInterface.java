@@ -10,4 +10,6 @@ import org.springframework.transaction.annotation.Transactional;
 @Transactional
 public interface UnitItemServiceInterface {
     public void addItem(UnitItem item,Integer workplaceId,String type);
+
+    public void deleteUnitItem(Integer id);
 }

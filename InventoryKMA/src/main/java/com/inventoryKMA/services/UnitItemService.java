@@ -22,4 +22,9 @@ public class UnitItemService implements UnitItemServiceInterface{
 
         unitItemDAO.addItem(item,workplaceId,type);
     }
+
+    @Override
+    public void deleteUnitItem(Integer id){
+        unitItemDAO.deleteUnitItem(id);
+    }
 }
