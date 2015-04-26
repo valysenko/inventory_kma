@@ -17,24 +17,43 @@
 <script src="<c:url value="/../resources/js/jquery-1.11.2.min.js" />"></script>
 <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
 </head>
-<body>
+<%--<body>--%>
 
+<%--<jsp:include page="header.jsp"/>--%>
+<%--<div class="container">--%>
+  <%--<table >--%>
+    <%--<thead>--%>
+    <%--<tr>--%>
+      <%--<td>--%>
+        <%--Message--%>
+      <%--</td>--%>
+    <%--</tr>--%>
+    <%--</thead>--%>
+    <%--<c:forEach items="${complaint}" var="complaint">--%>
+      <%--<tr>--%>
+        <%--<td>${complaint.message}</td>--%>
+      <%--</tr>--%>
+    <%--</c:forEach>--%>
+  <%--</table>--%>
+<%--</div>--%>
+<%--<jsp:include page="footer.jsp"/>--%>
+<%--</body>--%>
+<%--</html>--%>
+<body>
 <jsp:include page="header.jsp"/>
-<div class="container">
-  <table >
-    <thead>
-    <tr>
-      <td>
-        Message
-      </td>
-    </tr>
-    </thead>
-    <c:forEach items="${complaint}" var="complaint">
-      <tr>
-        <td>${complaint.message}</td>
-      </tr>
-    </c:forEach>
-  </table>
+<div class="container" style="text-align:center;width:400px;">
+  <h3>Complaint list</h3>
+  <div style="margin:auto;padding:auto;">
+    <ul class="list-group">
+      <c:forEach items="${complaint}" var="complaint">
+        <li class="list-group-item">
+          <tr>
+          <td>${complaint.message}</td>
+          </tr>
+        </li>
+      </c:forEach>
+    </ul>
+  </div>
 </div>
 <jsp:include page="footer.jsp"/>
 </body>
