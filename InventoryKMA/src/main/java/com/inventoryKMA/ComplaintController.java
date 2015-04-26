@@ -43,6 +43,13 @@ public class ComplaintController {
     }
 
 
+    @RequestMapping(value = "/admin/complaint/list", method = RequestMethod.GET)
+    public String getAllComplaint(ModelMap model) {
+        model.addAttribute("complaint",complaintService.getAllComplaint());
+        return "complaintList";
+    }
+
+
 }
 
 
