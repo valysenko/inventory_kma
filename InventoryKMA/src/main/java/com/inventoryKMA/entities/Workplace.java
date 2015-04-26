@@ -2,7 +2,9 @@ package com.inventoryKMA.entities;
 
 import org.hibernate.annotations.*;
 
+
 import javax.persistence.*;
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.Table;
 import java.util.List;
@@ -25,7 +27,7 @@ public class Workplace {
 
     }
 
-    public Workplace(Integer sequenceNumber, Set<UnitItem> units, Classroom classroom) {
+    public Workplace(Integer sequenceNumber, List<UnitItem> units, Classroom classroom) {
         this.sequenceNumber = sequenceNumber;
         this.units = units;
         this.classroom = classroom;
@@ -56,16 +58,28 @@ public class Workplace {
 
     //@Fetch(value = FetchMode.SUBSELECT)
    // @Fetch(FetchMode.SELECT)
-    @OneToMany (mappedBy="workplace",fetch = FetchType.EAGER)
-    private Set<UnitItem> units;
+    //@Fetch(FetchMode.SELECT)
+    @IndexColumn(name="list_index", nullable = false)
+    @JoinColumn(name = "workplace_id")
+    @OneToMany (cascade = CascadeType.ALL/*,mappedBy="workplace"*/,fetch = FetchType.EAGER)
+    private List<UnitItem> units;
 
-    public Set<UnitItem> getUnits() {
+    public List<UnitItem> getUnits() {
         return units;
     }
 
-    public void setUnits(Set<UnitItem> units) {
-            this.units = units;
+    public void setUnits(List<UnitItem> units) {
+        this.units = units;
     }
+//    private Set<UnitItem> units;
+//
+//    public Set<UnitItem> getUnits() {
+//        return units;
+//    }
+//
+//    public void setUnits(Set<UnitItem> units) {
+//            this.units = units;
+//    }
 
     public Integer getId() {
         return id;

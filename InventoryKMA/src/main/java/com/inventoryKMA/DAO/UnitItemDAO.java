@@ -31,9 +31,12 @@ public class UnitItemDAO implements UnitItemDAOInterface{
     public void addItem(UnitItem item, Integer workplaceId, String type){
         Unit unit = unitDAO.getUnitByName(type);
         Workplace wP = workplaceDAO.geWorkplaceById(workplaceId);
-        item.setWorkplace(wP);
+        wP.getUnits().add(item);
         item.setUnit(unit);
         currentSession().save(item);
+     //   item.setWorkplace(wP);
+
+       //currentSession().save(item);
     }
 
     public void deleteUnitItem(Integer id){

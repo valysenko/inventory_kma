@@ -12,8 +12,6 @@
         <intercept-url pattern="/assistant/*" access="ROLE_ASSISTANT" />
 
         <intercept-url pattern="/index*" access="ROLE_USER,ROLE_ANONYMOUS,ROLE_ADMIN,ROLE_ASSISTANT" />
-        <!--<intercept-url pattern="/add*" access="ROLE_ADMIN" />-->
-        <!--<intercept-url pattern="/delete/*" access="ROLE_ADMIN" />-->
 
         <form-login login-page="/login" default-target-url="/index"
                     authentication-failure-url="/error-login.html" />

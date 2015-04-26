@@ -17,19 +17,42 @@
     <script src="<c:url value="../resources/js/jquery-1.11.2.min.js" />"></script>
     <script src="<c:url value="/../resources/js/jquery-1.11.2.min.js" />"></script>
     <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+
+
 </head>
 <body>
 <jsp:include page="header.jsp"/>
+<script type="text/javascript">
+
+    //works only error method!?!?!?!
+    var del = function(one,two) {
+        $.ajax({
+            type: 'GET',
+            url:   'http://localhost:8080'+'/admin/unititem/delete/'+one+'/'+two+'',
+            dataType: 'json',
+            async: true,
+            success: function(result) {
+                $(""+'#img1'+two+"").css('display','none');
+                $(""+'#img2'+two+"").css('display','none');
+            },
+            error: function(jqXHR, textStatus, errorThrown) {
+              //  alert('Get '+jqXHR.status + ' ' + jqXHR.responseText);
+                $(""+'#img1'+two+"").remove();
+                $(""+'#img2'+two+"").remove();
+            }
+        });
+    }
+</script>
     <div  style="margin-left:10px;margin-right:10px;text-align:center;margin-bottom:50px;/*border:1px solid red*/">
    <%--style="border:1px solid darkslategray;border-radius: 3px;"--%>
     <h2>${classroom.number} edit</h2>
-        <div style="text-align:center;margin:auto;padding:auto;/*border:2px solid black*/">
+        <div style="text-align:center;margin:auto;padding:auto;width:${classroom.columns*(135+3)}px;">
 
                 <c:forEach items="${classroom.workplaces}" var="workplace">
 
-                    <div style="padding-top:3px;margin:3px;float:left;border:1px solid darkslategray;border-radius:3px; width:130px;height:130px;">
+                    <div style="background-color:#F8F8F8;padding-top:3px;margin:3px;float:left;border:2px solid lightgray;border-radius:3px; width:130px;height:130px;">
                         <%--units--%>
-                          <div style="width:135px;display:table-cell;vertical-align: top;height:105px;text-align:center">
+                          <div style="padding-left:10px;width:135px;display:table-cell;vertical-align: top;height:105px;text-align:center">
                               <c:forEach items="${workplace.units}" var="unit">
 
                                   <div
@@ -42,18 +65,21 @@
                                                        "
                                           >
 
+                                      <c:if test="${!empty  unit}">
+                                          <span id="img1${unit.id}" style="float:left;margin:2px;width:30px;height:30px">
 
-                                      <span id="img1${unit.id}" style="float:left;margin:2px;width:30px;height:30px">
-                                        <img  alt="number" style="width:30px;height:30px" src="/../resources/images/${unit.unit.name}.png"/>
-                                      </span>
+                                                  <img  alt="number" style="width:30px;height:30px" src="/../resources/images/${unit.unit.name}.png"/>
 
-                                      <span id="img2${unit.id}" style="margin:2px;width:30px;height:30px;display:none; float:left">
-                                         <a href="/admin/unititem/delete/${classroom.number}/${unit.id}">
-                                             <button class="btn btn-danger btn-xs" data-title="Delete" data-toggle="modal"
-                                                  data-target="#delete" ><span class="glyphicon glyphicon-trash"></span>
-                                             </button>
-                                         </a>
-                                      </span>
+                                          </span>
+
+                                          <span id="img2${unit.id}" style="margin:2px;width:30px;height:30px;display:none; float:left">
+                                             <%--<a href="/admin/unititem/delete/${classroom.number}/${unit.id}">--%>
+                                                 <button onClick="del(${classroom.number},${unit.id})" class="btn btn-danger btn-xs" data-title="Delete" data-toggle="modal"
+                                                      data-target="#delete" ><span class="glyphicon glyphicon-trash"></span>
+                                                 </button>
+                                             <%--</a>--%>
+                                          </span>
+                                      </c:if>
                                   </div>
 
                               </c:forEach>

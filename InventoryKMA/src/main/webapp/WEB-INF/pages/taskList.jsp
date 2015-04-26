@@ -10,8 +10,8 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <link rel="stylesheet" href="<c:url value="../resources/bootstrap-3.3.4-dist/css/bootstrap.min.css"/>">
-    <link rel="stylesheet" href="<c:url value="../resources/bootstrap-3.3.4-dist/css/bootstrap-theme.min.css"/>">
+    <link rel="stylesheet" href="<c:url value="/../resources/bootstrap-3.3.4-dist/css/bootstrap.min.css"/>">
+    <link rel="stylesheet" href="<c:url value="/../resources/bootstrap-3.3.4-dist/css/bootstrap-theme.min.css"/>">
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
     <script src="<c:url value="/../resources/bootstrap-3.3.4-dist/js/bootstrap.min.js" />"></script>
     <script src="<c:url value="../resources/js/jquery-1.11.2.min.js" />"></script>
@@ -21,7 +21,7 @@
 <body>
 <jsp:include page="header.jsp"/>
 <div class="container">
-    <table >
+    <table class="table table-striped custab" style="min-width:400px;">
         <thead>
             <tr>
                 <td>

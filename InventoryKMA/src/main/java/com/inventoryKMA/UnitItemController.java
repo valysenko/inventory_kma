@@ -51,9 +51,9 @@ public class UnitItemController {
     }
 
     @RequestMapping(value="/admin/unititem/delete/{classsroom_number}/{id}",method = RequestMethod.GET)
-    public String deleteUnitItem(ModelMap model,@PathVariable Integer classsroom_number,@PathVariable Integer id){
+    public void /*String*/ deleteUnitItem(ModelMap model,@PathVariable Integer classsroom_number,@PathVariable Integer id){
 
         unitItemService.deleteUnitItem(id);
-        return "redirect:/admin/classroom/"+classsroom_number;
+      //  return "redirect:/admin/classroom/"+classsroom_number;
     }
 }
