@@ -14,16 +14,20 @@
 </head>
 <body>
 <jsp:include page="header.jsp"/>
-<div class="container" style="width:280px;text-align:center">
+<div class="container" style="width:400px;text-align:center">
     <h3>
         New task
     </h3>
     <form:form style="margin:auto;padding:auto;" method="post" action="/admin/task/add" commandName="task">
-        <table>
+        <table style="text-align:left;margin:auto;padding:auto;">
             <tr>
                 <td>
                     <label for="message">Message:</label>
                     <form:textarea id="message" class="form-control" path="message" /></td>
+                <c:set var="first"><form:errors path="message"/></c:set>
+                <c:if test="${not empty first}">
+                    <td> <span  style="color:darkred;vertical-align:center;padding-left:10px">  Can not be empty! </span> </td>
+                </c:if>
             </tr>
             <tr>
                 <td style="margin-top:10px">

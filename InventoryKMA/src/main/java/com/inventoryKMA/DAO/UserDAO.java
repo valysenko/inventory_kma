@@ -32,6 +32,9 @@ public class UserDAO implements UserDAOInterface{
 
     @Override
     public void addUser(User user) {
+        Role role = roleDAO.getRoleByName("ROLE_USER");
+        user.setRole(role);
+        user.setPassword("1");
         currentSession().save(user);
     }
 

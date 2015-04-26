@@ -21,7 +21,7 @@
 <body>
 <jsp:include page="header.jsp"/>
 <div class="container">
-    <table class="table table-striped custab" style="min-width:400px;">
+    <table >
         <thead>
             <tr>
                 <td>

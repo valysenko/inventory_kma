@@ -10,7 +10,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
@@ -18,28 +17,32 @@ import javax.validation.Valid;
 import java.util.List;
 
 /**
- * Created by Vladyslav on 25.04.2015.
+ * Created by Vladyslav on 26.04.2015.
  */
 
 @Controller
-public class UserController {
+@RequestMapping("/")
+public class RegistrationController {
 
     @Autowired
     private UserServiceInterface userService;
 
-    @RequestMapping(value = "/admin/assistant/list", method = RequestMethod.GET)
-    public String assistantList(ModelMap model) {
+    @RequestMapping(value="/registration",method=RequestMethod.GET)
+    public String registrationFormShow(ModelMap model){
 
-        model.addAttribute("assistants", userService.getUsersByRoleName("ROLE_ASSISTANT"));
-        return "assistantList";
+        model.addAttribute("user",new User());
+        return "userRegistration";
     }
 
-    @RequestMapping(value = "/admin/assistant/delete/{id}", method = RequestMethod.GET)
-    public String deleteAssistant(ModelMap model,@PathVariable int id) {
+    @RequestMapping(value = "/registration/add", method = RequestMethod.POST)
+    public String registration(ModelMap model, @Valid @ModelAttribute("user") User user,
+                          BindingResult result) {
+        if(result.hasErrors()){
+            return "userRegistration";
+        }
 
-        //model.addAttribute("assistants", userService.getUsersByRoleName("ROLE_ASSISTANT"));
-        userService.deleteUser(id);
-        return "redirect:/admin/assistant/list";
+        userService.addUser(user);
+
+        return "redirect:/";
     }
-
 }

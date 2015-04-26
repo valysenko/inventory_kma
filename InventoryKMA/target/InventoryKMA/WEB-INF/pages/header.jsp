@@ -76,7 +76,12 @@
     <ul class="nav navbar-nav navbar-right">
         <li>
             <sec:authorize ifAnyGranted="ROLE_ANONYMOUS">
-                <a href="<c:url value="/login"/>">Login</a>
+                <a href="<c:url value="/registration"/>">Sign up</a>
+            </sec:authorize>
+        </li>
+        <li>
+            <sec:authorize ifAnyGranted="ROLE_ANONYMOUS">
+                <a href="<c:url value="/login"/>">Sign in</a>
             </sec:authorize>
         </li>
         <li>
