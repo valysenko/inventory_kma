@@ -33,6 +33,10 @@
         <td>
           <label for="message">Message:</label>
           <form:textarea id="message" class="form-control" path="message" /></td>
+        <c:set var="first"><form:errors path="message"/></c:set>
+        <c:if test="${not empty first}">
+          <td> <span  style="color:darkred;vertical-align:center;padding-left:10px">  Can not be empty! </span> </td>
+        </c:if>
       </tr>
       <tr>
         <td style="height:10px">

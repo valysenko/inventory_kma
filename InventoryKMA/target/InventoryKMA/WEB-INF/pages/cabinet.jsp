@@ -27,20 +27,10 @@
         admin in the cabinet
     </sec:authorize>
 
-<<<<<<< HEAD
-<sec:authorize ifAnyGranted="ROLE_USER">
-  User in kabinet
-</sec:authorize>
-
-    <sec:authorize ifAnyGranted="ROLE_ADMIN">
-
-    </sec:authorize>
-
-=======
     <sec:authorize ifAnyGranted="ROLE_USER">
         form
     </sec:authorize>
->>>>>>> origin/master
+
 
 </div>
 <jsp:include page="footer.jsp"/>
