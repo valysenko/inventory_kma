@@ -39,4 +39,6 @@ public class ClassroomService implements ClassroomServiceInterface{
     public void saveClassroom(Classroom classroom){
         classroomDAO.saveClassroom(classroom);
     }
+
+    public void changeUserInClassroom(Integer id){classroomDAO.changeUserInClassroom(id);}
 }

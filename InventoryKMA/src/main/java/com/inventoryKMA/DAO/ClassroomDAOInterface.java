@@ -20,4 +20,8 @@ public interface ClassroomDAOInterface {
     public  List<Classroom> getUnmanagedClassrooms();
 
     public void saveClassroom(Classroom classroom);
+
+    public void changeUserInClassroom(Integer id);
+
+
 }

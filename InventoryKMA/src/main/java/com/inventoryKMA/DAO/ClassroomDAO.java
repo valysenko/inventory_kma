@@ -71,4 +71,9 @@ public class ClassroomDAO implements ClassroomDAOInterface{
         cl.setUser(classroom.getUser());
         currentSession().save(cl);
     }
+    public void changeUserInClassroom(Integer id){
+        Classroom cl = (Classroom) currentSession().load(Classroom.class,id);
+        cl.setUser(null);
+        currentSession().save(cl);
+    }
 }

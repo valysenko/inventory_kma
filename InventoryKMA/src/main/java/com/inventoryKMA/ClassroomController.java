@@ -44,7 +44,7 @@ public class ClassroomController {
 
         List<User> users = userService.getUsersByRoleName("ROLE_ASSISTANT");
         model.addAttribute("users",users);
-        model.addAttribute("classroom",new Classroom());
+        model.addAttribute("classroom", new Classroom());
         return "classroom";
     }
 
@@ -86,10 +86,16 @@ public class ClassroomController {
     }
 
     @RequestMapping(value = "/admin/classroom/save", method = RequestMethod.POST)
-    public String manageClassroomSave(@ModelAttribute("classroom") Classroom classroom,
-                                      BindingResult result) {
+     public String manageClassroomSave(@ModelAttribute("classroom") Classroom classroom,
+                                       BindingResult result) {
         classroomService.saveClassroom(classroom);
         return "redirect:/admin/classroom/unmanaged/list";
+    }
+    @RequestMapping(value = "/admin/classroom/unmanage/{number}/{id}", method = RequestMethod.GET)
+    public String changeUserInClassroom(ModelMap model, @PathVariable String number, @PathVariable Integer id) {
+
+        classroomService.changeUserInClassroom(id);
+        return "redirect:/admin/classroom/"+number;
     }
 
     @RequestMapping(value = "/admin/classroom/{number}", method = RequestMethod.GET)
@@ -98,5 +104,7 @@ public class ClassroomController {
         model.addAttribute("classroom", classroom);
         return "classroomEdit";
     }
+
+
 
 }

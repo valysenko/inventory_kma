@@ -15,4 +15,6 @@ public interface ClassroomServiceInterface {
     public List<Classroom> getUnmanagedClassrooms();
 
     public void saveClassroom(Classroom classroom);
+
+    public void changeUserInClassroom(Integer id);
 }
