@@ -28,7 +28,7 @@ public class Task {
     private String message;
 
     @ManyToOne
-    @JoinColumn(name = "userTo_id",nullable = true )
+    @JoinColumn(name = "userTo_id"/*,nullable = true*/ )
     private User userTo;
 
     @OneToOne(fetch = FetchType.EAGER)

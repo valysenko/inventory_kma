@@ -40,7 +40,7 @@
                         <a href="<c:url value="/admin/classroom/new"/>">Add classroom</a>
                     </li>
                     <li>
-                        <a href="<c:url value="/admin/assistant/new"/>">Add assistant from user</a>
+                        <a href="<c:url value="/admin/find/user"/>">Add assistant from user</a>
                     </li>
                 </ul>
             </li>

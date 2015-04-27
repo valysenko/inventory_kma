@@ -13,6 +13,6 @@
 <link rel="stylesheet" href="<c:url value="/../resources/bootstrap-3.3.4-dist/css/bootstrap-theme.min.css"/>">
 <script src="<c:url value="/../resources/bootstrap-3.3.4-dist/js/bootstrap.min.js" />"></script>
 
-<div class="footer navbar-fixed-bottom">
+<div class="footer navbar-fixed-bottom" style="text-align:center">
     <div class="panel-footer">Copyright 2015 © </div>
 </div>

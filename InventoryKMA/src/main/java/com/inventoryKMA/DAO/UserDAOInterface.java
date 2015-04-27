@@ -23,4 +23,8 @@ public interface UserDAOInterface {
     public List<User> getUsersByRoleName(String name);
 
     public void saveUser(User user)  throws NoSuchAlgorithmException;
+
+    public List<User> getUsersByEmail(String email);
+
+    public void changeRoleToAssistant(Integer id);
 }

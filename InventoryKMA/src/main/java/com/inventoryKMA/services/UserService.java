@@ -44,4 +44,14 @@ public class UserService implements UserServiceInterface{
     public void saveUser(User user)  throws NoSuchAlgorithmException{
         userDAO.saveUser(user);
     }
+
+    @Override
+    public List<User> getUsersByEmail(String email){
+       return  userDAO.getUsersByEmail(email);
+    }
+
+    @Override
+    public void changeRoleToAssistant(Integer id){
+        userDAO.changeRoleToAssistant(id);
+    }
 }

@@ -1,5 +1,7 @@
 package com.inventoryKMA.entities;
 
+import org.hibernate.annotations.IndexColumn;
+
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
@@ -57,7 +59,8 @@ public class User {
         this.password = password;
     }
 
-    @OneToMany(mappedBy="userTo")
+    @OneToMany(mappedBy="userTo"/*,fetch = FetchType.EAGER*/)
+//    @IndexColumn(name="list_index", nullable = false)
     private List<Task> tasks;
 
     @OneToOne(cascade = CascadeType.ALL, targetEntity=Role.class,fetch = FetchType.EAGER)

@@ -18,4 +18,8 @@ public interface UserServiceInterface {
     public  void addUser(User user) throws NoSuchAlgorithmException;
 
     public void saveUser(User user)  throws NoSuchAlgorithmException;
+
+    public List<User> getUsersByEmail(String email);
+
+    public void changeRoleToAssistant(Integer id);
 }

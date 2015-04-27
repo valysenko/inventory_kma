@@ -23,22 +23,18 @@
 <body>
 <jsp:include page="header.jsp"/>
 <script type="text/javascript">
-
-    //works only error method!?!?!?!
     var del = function(one,two) {
         $.ajax({
             type: 'GET',
             url:   'http://localhost:8080'+'/admin/unititem/delete/'+one+'/'+two+'',
-            dataType: 'json',
+            contentType: 'application/json',
             async: true,
-            success: function(result) {
-                $(""+'#img1'+two+"").css('display','none');
-                $(""+'#img2'+two+"").css('display','none');
-            },
-            error: function(jqXHR, textStatus, errorThrown) {
-              //  alert('Get '+jqXHR.status + ' ' + jqXHR.responseText);
+            success: function(data) {
                 $(""+'#img1'+two+"").remove();
                 $(""+'#img2'+two+"").remove();
+            },
+            error: function(jqXHR, textStatus, errorThrown) {
+
             }
         });
     }

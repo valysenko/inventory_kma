@@ -115,6 +115,14 @@ public class UserDAO implements UserDAOInterface{
         return usersList;
     }
 
+    @Override
+    public List<User> getUsersByEmail(String email){
+        List<User> userList = new ArrayList<User>();
+        Query query = currentSession().createQuery("from User u where u.email like '"+email+"%'");
+        userList = query.list();
+        return userList;
+    }
+
     private String toMD5(String password) throws NoSuchAlgorithmException {
         MessageDigest md = MessageDigest.getInstance("MD5");
         md.update(password.getBytes());
@@ -128,6 +136,14 @@ public class UserDAO implements UserDAOInterface{
         }
 
         return sb.toString();
+    }
+
+    @Override
+    public void changeRoleToAssistant(Integer id){
+        User user = (User) currentSession().load(User.class,id);
+        Role role = roleDAO.getRoleByName("ROLE_ASSISTANT");
+        user.setRole(role);
+        currentSession().update(user);
     }
 
 }

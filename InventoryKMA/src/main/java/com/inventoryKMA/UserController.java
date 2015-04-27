@@ -1,22 +1,25 @@
 package com.inventoryKMA;
 
+import com.inventoryKMA.entities.Classroom;
+import com.inventoryKMA.entities.Role;
 import com.inventoryKMA.entities.Task;
 import com.inventoryKMA.entities.User;
 import com.inventoryKMA.services.UserServiceInterface;
+import org.json.JSONArray;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 import java.security.NoSuchAlgorithmException;
+import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 /**
  * Created by Vladyslav on 25.04.2015.
@@ -69,5 +72,41 @@ public class UserController {
        userService.saveUser(user);
         return "redirect:/index";
     }
+
+    @RequestMapping(value = "/admin/find/user", method = RequestMethod.GET)
+    public String findUser(ModelMap model) {
+        return "findUser";
+    }
+
+    @RequestMapping(value = "/admin/find/user/{email}",
+            method = RequestMethod.GET,
+            produces = "application/json",
+            headers="Accept=*/*")
+    public @ResponseBody
+    List<User> findUserValue(ModelMap model,@PathVariable String email)   {
+
+        //need it for avoiding problems with json
+        List<Task> tL = new ArrayList<Task>();
+        Set<Classroom> cL = new HashSet<Classroom>();
+        Role r = new Role();
+
+        List<User> userList= userService.getUsersByEmail(email);
+
+        for(User u : userList){
+            u.setTasks(tL);
+            u.setClassrooms(cL);
+            u.setRole(r);
+        }
+
+        return userList;
+    }
+
+    @RequestMapping(value = "/admin/change/role/{id}", method = RequestMethod.GET)
+    public String changeRoleToAssistant(ModelMap model,@PathVariable Integer id )  {
+
+        userService.changeRoleToAssistant(id);
+        return "redirect:/index";
+    }
+
 
 }
