@@ -18,8 +18,8 @@
 <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
 </head>
 <body>
-
 <jsp:include page="header.jsp"/>
+<<<<<<< HEAD
 <div class="container">
     <div><h3>Complaints list</h3></div>
   <table >
@@ -36,6 +36,21 @@
       </tr>
     </c:forEach>
   </table>
+=======
+<div class="container" style="text-align:center;width:400px;">
+  <h3>Complaint list</h3>
+  <div style="margin:auto;padding:auto;">
+    <ul class="list-group">
+      <c:forEach items="${complaint}" var="complaint">
+        <li class="list-group-item">
+          <tr>
+          <td>${complaint.message}</td>
+          </tr>
+        </li>
+      </c:forEach>
+    </ul>
+  </div>
+>>>>>>> origin/master
 </div>
 <jsp:include page="footer.jsp"/>
 </body>

@@ -66,8 +66,9 @@ public class TaskDAO implements TaskDAOInterface {
         User user = userDao.getUserByEmail(email);
 
         List<Task> taskList = new ArrayList<Task>();
-        Query query = currentSession().createQuery("from Task t where t.userTo = :user");
+        Query query = currentSession().createQuery("from Task t where t.userTo = :user and t.status=:status");
         query.setParameter("user", user);
+        query.setParameter("status","in progress");
         taskList = query.list();
         return taskList;
     }
