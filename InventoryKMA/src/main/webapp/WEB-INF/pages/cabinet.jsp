@@ -23,14 +23,6 @@
 <body>
 <jsp:include page="header.jsp"/>
 <div class="container">
-    <sec:authorize ifAnyGranted="ROLE_ADMIN">
-        admin in the cabinet
-    </sec:authorize>
-
-    <sec:authorize ifAnyGranted="ROLE_USER">
-        form
-    </sec:authorize>
-
 
 </div>
 <jsp:include page="footer.jsp"/>

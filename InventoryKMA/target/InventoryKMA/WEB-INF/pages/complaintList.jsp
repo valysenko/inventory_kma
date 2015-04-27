@@ -21,6 +21,7 @@
 
 <jsp:include page="header.jsp"/>
 <div class="container">
+    <div><h3>Complaints list</h3></div>
   <table >
     <thead>
     <tr>

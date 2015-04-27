@@ -33,26 +33,10 @@ public class UserDAO implements UserDAOInterface{
     }
 
     @Override
-    public void addUser(User user) {
+    public void addUser(User user) throws NoSuchAlgorithmException{
         Role role = roleDAO.getRoleByName("ROLE_USER");
         user.setRole(role);
-
-        // Hash a password for the first time
-        String hashed = BCrypt.hashpw(user.getPassword(), BCrypt.gensalt());
-
-        // gensalt's log_rounds parameter determines the complexity
-        // the work factor is 2**log_rounds, and the default is 10
-            //    String hashed = BCrypt.hashpw(password, BCrypt.gensalt(12));
-
-        // Check that an unencrypted password matches one that has
-        // previously been hashed
-//        if (BCrypt.checkpw(candidate, hashed))
-//            System.out.println("It matches");
-//        else
-//            System.out.println("It does not match");
-
-
-        user.setPassword(hashed);
+        user.setPassword(toMD5(user.getPassword()));
         currentSession().save(user);
     }
 
@@ -102,6 +86,17 @@ public class UserDAO implements UserDAOInterface{
             return null;
     }
 
+    public void saveUser(User user)  throws NoSuchAlgorithmException{
+        User u = (User) currentSession().load(User.class,user.getId());
+
+        u.setLastName(user.getLastName());
+        u.setFirstName(user.getFirstName());
+        u.setPassword(toMD5(user.getPassword()));
+        u.setEmail(user.getEmail());
+        u.setPhoneNumber(user.getPhoneNumber());
+        currentSession().save(u);
+    }
+
     public List getUsers(){
         String hql = "FROM User";
         return currentSession().createQuery(hql)
@@ -118,6 +113,21 @@ public class UserDAO implements UserDAOInterface{
         query.setParameter("name", name);
         usersList = query.list();
         return usersList;
+    }
+
+    private String toMD5(String password) throws NoSuchAlgorithmException {
+        MessageDigest md = MessageDigest.getInstance("MD5");
+        md.update(password.getBytes());
+
+        byte byteData[] = md.digest();
+
+
+        StringBuffer sb = new StringBuffer();
+        for (int i = 0; i < byteData.length; i++) {
+            sb.append(Integer.toString((byteData[i] & 0xff) + 0x100, 16).substring(1));
+        }
+
+        return sb.toString();
     }
 
 }

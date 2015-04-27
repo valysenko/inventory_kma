@@ -50,19 +50,19 @@
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">View and manage <span class="caret"></span></a>
                 <ul class="dropdown-menu" role="menu">
                     <li>
-                        <a href="<c:url value="/admin/classroom/list"/>">Classroom list</a>
+                        <a href="<c:url value="/admin/classroom/list"/>">Classrooms list</a>
                     </li>
                     <li>
-                        <a href="<c:url value="/admin/assistant/list"/>">Assistant list</a>
+                        <a href="<c:url value="/admin/assistant/list"/>">Assistants list</a>
+                    </li>
+                    <li>
+                        <a href = "<c:url value="/admin/complaint/list"/>"> Complaints list </a>
                     </li>
                     <li>
                         <a href="<c:url value="/admin/classroom/unmanaged/list"/>">Unmanaged classrooms</a>
                     </li>
                     <li>
                         <a href="<c:url value="/admin/task/unmanaged/list"/>">Unmanaged tasks</a>
-                    </li>
-                    <li>
-                        <a href = "<c:url value="/admin/complaint/list"/>"> All complaint </a>
                     </li>
                 </ul>
             </li>
@@ -89,6 +89,13 @@
                 <a href="<c:url value="/login"/>">Sign in</a>
             </sec:authorize>
         </li>
+
+        <li>
+            <sec:authorize ifNotGranted="ROLE_ANONYMOUS">
+                <a href="<c:url value="/edit/user"/>">Edit</a>
+            </sec:authorize>
+        </li>
+
         <li>
             <sec:authorize ifNotGranted="ROLE_ANONYMOUS">
                 <a href="<c:url value="/logout"/>">Logout</a>

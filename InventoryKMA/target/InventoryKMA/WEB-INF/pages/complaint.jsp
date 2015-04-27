@@ -25,7 +25,7 @@
   <body>
   <div class="container" style="width:280px;text-align:center">
   <h3>
-  New message
+  New complaint
   </h3>
   <form:form style="margin:auto;padding:auto;" method="post" action="/user/complaint/add" commandName="complaint">
     <table style="text-align:left;margin:auto;padding:auto;">

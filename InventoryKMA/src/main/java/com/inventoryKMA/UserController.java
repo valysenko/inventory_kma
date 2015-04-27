@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import javax.validation.Valid;
+import java.security.NoSuchAlgorithmException;
 import java.util.List;
 
 /**
@@ -47,6 +48,26 @@ public class UserController {
         //model.addAttribute("assistants", userService.getUsersByRoleName("ROLE_ASSISTANT"));
         userService.deleteUser(id);
         return "redirect:/admin/assistant/list";
+    }
+
+    @RequestMapping(value = "/edit/user", method = RequestMethod.GET)
+    public String editUserShow(ModelMap model) {
+        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+        String email = auth.getName(); //get logged in email
+        User user = userService.getUserByEmail(email);
+        model.addAttribute("user",user);
+        return "editUser";
+    }
+
+    @RequestMapping(value = "/edit/user/save", method = RequestMethod.POST)
+    public String editUserSave(ModelMap model,@Valid @ModelAttribute("user") User user,
+                                     BindingResult result)  throws NoSuchAlgorithmException {
+        if(result.hasErrors()){
+            return "editUser";
+        }
+
+       userService.saveUser(user);
+        return "redirect:/index";
     }
 
 }

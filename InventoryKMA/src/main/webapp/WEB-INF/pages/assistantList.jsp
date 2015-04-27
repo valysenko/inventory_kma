@@ -21,6 +21,7 @@
 <body>
 <jsp:include page="header.jsp"/>
 <div class="container">
+    <div><h3>Assistants list</h3></div>
     <table class="table table-striped custab" style="min-width:400px;">
         <thead>
         <tr>
@@ -47,7 +48,7 @@
                 <td>${assistant.phoneNumber}</td>
                 <td>${assistant.email}</td>
                 <td>
-                        <a href="/admin/assistant/delete/${assistant.id}">delete </a>
+                        <a href="/admin/assistant/delete/${assistant.id}">delete (make him user) </a>
                 </td>
             </tr>
         </c:forEach>

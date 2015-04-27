@@ -41,7 +41,7 @@
             <tr>
                 <td>
                     <button type="submit" class="btn btn-default preview-add-button">
-                        <span class="glyphicon glyphicon-save"></span> Save
+                        <span class="glyphicon glyphicon-ok"></span> Save
                     </button>
                 </td>
             </tr>

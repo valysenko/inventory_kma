@@ -21,7 +21,7 @@
 <body>
 <jsp:include page="header.jsp"/>
 <div class="container" style="text-align:center;width:400px;">
-    <h3>Classroom list</h3>
+    <h3>Classrooms list</h3>
     <div style="margin:auto;padding:auto;">
 
         <ul class="list-group">

@@ -10,6 +10,7 @@
         <intercept-url pattern="/user/**" access="ROLE_USER" />
         <intercept-url pattern="/admin/**" access="ROLE_ADMIN" />
         <intercept-url pattern="/assistant/**" access="ROLE_ASSISTANT" />
+        <intercept-url pattern="/edit/user/*" access="ROLE_ASSISTANT,ROLE_USER,ROLE_ADMIN" />
 
         <intercept-url pattern="/index/**" access="ROLE_USER,ROLE_ANONYMOUS,ROLE_ADMIN,ROLE_ASSISTANT" />
 
@@ -22,7 +23,8 @@
 
     <authentication-manager>
         <authentication-provider user-service-ref="customUserDetailsService">
-            <password-encoder hash="bcrypt">
-            </password-encoder></authentication-provider>
+            <password-encoder hash="md5">
+            </password-encoder>
+        </authentication-provider>
     </authentication-manager>
 </beans:beans>

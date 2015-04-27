@@ -21,6 +21,7 @@
 <body>
 <jsp:include page="header.jsp"/>
 <div class="container">
+    <div><h3>Current tasks list</h3></div>
     <table class="table table-striped custab" style="min-width:400px;">
         <thead>
             <tr>

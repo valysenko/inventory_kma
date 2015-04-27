@@ -22,6 +22,7 @@
         <table style="text-align:left;margin:auto;padding:auto;">
             <tr>
                 <td>
+                    <form:hidden path="id" />
                     <label for="message">Message:</label>
                     <form:textarea id="message" class="form-control" path="message" /></td>
                 <c:set var="first"><form:errors path="message"/></c:set>

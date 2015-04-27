@@ -15,13 +15,13 @@ public class CabinetController {
     @RequestMapping(value="/admin/cabinet", method = RequestMethod.GET)
     public String adminCabinet(ModelMap model) {
 
-        return "cabinet";
+        return "redirect:/admin/classroom/list";
     }
 
     @RequestMapping(value="/assistant/cabinet", method = RequestMethod.GET)
     public String assistantCabinet(ModelMap model) {
 
-        return "cabinet";
+        return "redirect:/assistant/tasks";
     }
 
     @RequestMapping(value="/user/cabinet", method = RequestMethod.GET)

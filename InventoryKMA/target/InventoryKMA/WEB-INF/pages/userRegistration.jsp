@@ -31,7 +31,7 @@
             <tr>
                 <td>
                     <label for="firstName">First name:</label>
-                    <form:input id="firstName" class="form-control" path="firstName"/>
+                    <form:input id="firstName" class="form-control" path="firstName" />
                 </td>
                 <c:set var="first"><form:errors path="firstName"/></c:set>
                 <c:if test="${not empty first}">
