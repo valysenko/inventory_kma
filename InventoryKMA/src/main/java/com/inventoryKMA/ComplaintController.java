@@ -9,6 +9,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
@@ -41,6 +42,14 @@ public class ComplaintController {
             return "redirect:/user/cabinet";
         }
     }
+    @RequestMapping(value="/admin/complaint/delete/{id}", method = RequestMethod.GET)
+    public String deleteComplaint(ModelMap model, @PathVariable int id) {
+        complaintService.deleteComplaint(id);
+        return "redirect:/admin/complaint/list";
+
+    }
+
+
 
 
     @RequestMapping(value = "/admin/complaint/list", method = RequestMethod.GET)

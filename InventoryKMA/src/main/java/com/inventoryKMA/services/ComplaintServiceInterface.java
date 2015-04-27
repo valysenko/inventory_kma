@@ -8,5 +8,6 @@ import java.util.List;
 public interface ComplaintServiceInterface {
     public void addComplaint(Complaint complain);
     public List<Complaint> getAllComplaint();
+    public  void deleteComplaint(int id);
 
 }

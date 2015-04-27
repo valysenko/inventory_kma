@@ -41,7 +41,7 @@
 </script>
     <div  style="margin-left:10px;margin-right:10px;text-align:center;margin-bottom:50px;/*border:1px solid red*/">
    <%--style="border:1px solid darkslategray;border-radius: 3px;"--%>
-    <h2>${classroom.number} edit</h2>
+    <h2>${classroom.number} edit (${classroom.user.lastName} ${classroom.user.firstName})</h2>
         <div style="text-align:center;margin:auto;padding:auto;width:${classroom.columns*(135+3)}px;">
 
                 <c:forEach items="${classroom.workplaces}" var="workplace">

@@ -23,6 +23,8 @@ private ComplaintDAOInterface complaintDAO;
       complaintDAO.addComplaint(complaint);
     }
 
+    public void deleteComplaint(int id){complaintDAO.deleteComplaint(id);}
+
     @Override public  List<Complaint> getAllComplaint(){
         return complaintDAO.getAllComplaint();
     }

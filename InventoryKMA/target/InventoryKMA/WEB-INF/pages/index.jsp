@@ -9,12 +9,21 @@
     <script src="<c:url value="../resources/js/jquery-1.11.2.min.js" />"></script>
     <script src="<c:url value="/../resources/js/jquery-1.11.2.min.js" />"></script>
     <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+    <style>
+        .fig {
+            text-align: center;
+            color:#253d6d;
+            font-size:50px;
+        }
+    </style>
 </head>
 <body>
 <jsp:include page="header.jsp"/>
 <div class="container">
 
-    Welcome to inventory project!
+    <p class="fig"><img src="/../resources/images/kiev-mohyla-academy-arms.jpg"
+                        width="430" height="337" alt="Фотография"></p>
+    <h1 class="fig"  >Welcome to KMA inventory project</h1>
 
 </div>
 <jsp:include page="footer.jsp"/>
