@@ -12,4 +12,5 @@ import java.util.List;
 public interface ComplaintDAOInterface {
     public void addComplaint(Complaint complaint);
     public List<Complaint> getAllComplaint();
+    public void deleteComplaint (int id);
 }

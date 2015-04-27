@@ -19,24 +19,7 @@
 </head>
 <body>
 <jsp:include page="header.jsp"/>
-<<<<<<< HEAD
-<div class="container">
-    <div><h3>Complaints list</h3></div>
-  <table >
-    <thead>
-    <tr>
-      <td>
-        Message
-      </td>
-    </tr>
-    </thead>
-    <c:forEach items="${complaint}" var="complaint">
-      <tr>
-        <td>${complaint.message}</td>
-      </tr>
-    </c:forEach>
-  </table>
-=======
+
 <div class="container" style="text-align:center;width:400px;">
   <h3>Complaint list</h3>
   <div style="margin:auto;padding:auto;">
@@ -46,11 +29,14 @@
           <tr>
           <td>${complaint.message}</td>
           </tr>
+          <td>
+              <a href="/admin/complaint/delete/${complaint.id}">delete</a>
+          </td>
         </li>
       </c:forEach>
     </ul>
   </div>
->>>>>>> origin/master
+
 </div>
 <jsp:include page="footer.jsp"/>
 </body>

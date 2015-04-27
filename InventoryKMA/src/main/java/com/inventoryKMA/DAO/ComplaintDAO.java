@@ -30,6 +30,12 @@ public class ComplaintDAO implements ComplaintDAOInterface {
         currentSession().save(complaint);
 
     }
+
+    @Override
+    public void deleteComplaint(int id){
+        Complaint c = (Complaint) currentSession().load(Complaint.class,id);
+        currentSession().delete(c);
+    }
     @Override
     public  List<Complaint> getAllComplaint(){
         List<Complaint> complaintList = new ArrayList<Complaint>();
