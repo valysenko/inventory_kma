@@ -19,23 +19,6 @@
 </head>
 <body>
 <jsp:include page="header.jsp"/>
-<<<<<<< HEAD
-
-<div class="container" style="text-align:center;width:400px;">
-  <h3>Complaint list</h3>
-  <div style="margin:auto;padding:auto;">
-    <ul class="list-group">
-      <c:forEach items="${complaint}" var="complaint">
-        <li class="list-group-item">
-          <tr>
-          <td>${complaint.message}</td>
-          </tr>
-        </li>
-      </c:forEach>
-    </ul>
-  </div>
-
-=======
 <div class="container">
   <div><h3>Complaint list</h3></div>
   <table class="table table-striped custab" style="min-width:400px;">
@@ -57,10 +40,7 @@
       </tr>
     </c:forEach>
   </table>
->>>>>>> origin/master
 </div>
 <jsp:include page="footer.jsp"/>
-
-
 </body>
 </html>
