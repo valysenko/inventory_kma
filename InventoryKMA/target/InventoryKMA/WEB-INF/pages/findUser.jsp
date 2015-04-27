@@ -20,11 +20,11 @@
     <script type="text/javascript">
 
         $(document).ready(function() {
-            $('#em').focus(function(){
-                if(this.value==null){
-                    $('.hr').remove();
-                }
-            });
+//            $('#em').focus(function(){
+//                if(this.value==null){
+//                    $('.hr').remove();
+//                }
+//            });
             $('#em').on('input',function(){
                 var value = this.value;
                 ///console.log(value);
