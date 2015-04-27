@@ -73,7 +73,7 @@ public class TaskController {
 
         taskService.addTask(email,task);
 
-        return "redirect:/";
+        return "redirect:/index";
     }
 
     @RequestMapping(value = "/assistant/tasks", method = RequestMethod.GET)
