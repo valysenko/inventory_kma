@@ -13,7 +13,7 @@
         .fig {
             text-align: center;
             color:#253d6d;
-            font-size:50px;
+            font-size:52px;
         }
     </style>
 </head>
@@ -22,7 +22,7 @@
 <div class="container">
 
     <p class="fig"><img src="/../resources/images/kiev-mohyla-academy-arms.jpg"
-                        width="430" height="337" alt="Фотография"></p>
+                        width="20%" height="20%" alt=""></p>
     <h1 class="fig"  >Welcome to KMA inventory project</h1>
 
 </div>

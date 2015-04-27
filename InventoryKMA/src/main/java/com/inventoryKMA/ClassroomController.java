@@ -58,7 +58,7 @@ public class ClassroomController {
         }
 
         classroomService.addClassrom(classroom);
-        return "redirect:/";
+        return "redirect:/admin/classroom/"+classroom.getNumber();
     }
 
     @RequestMapping(value = "/admin/classroom/list", method = RequestMethod.GET)
