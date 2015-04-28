@@ -26,8 +26,7 @@ public class Classroom {
     @NotNull
     private String number;
 
-    //@Fetch(FetchMode.SELECT)
-    //@IndexColumn(name="LIST_INDEX")
+
     @OneToMany(mappedBy="classroom",fetch = FetchType.EAGER)
     private List<Workplace> workplaces;
 

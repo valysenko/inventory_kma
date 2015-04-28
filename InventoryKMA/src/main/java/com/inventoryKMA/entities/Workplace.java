@@ -52,16 +52,10 @@ public class Workplace {
     public void setSequenceNumber(Integer sequenceNumber) {
         this.sequenceNumber = sequenceNumber;
     }
-//    ,fetch = FetchType.EAGER
-   // @LazyCollection(LazyCollectionOption.FALSE)
 
-
-    //@Fetch(value = FetchMode.SUBSELECT)
-   // @Fetch(FetchMode.SELECT)
-    //@Fetch(FetchMode.SELECT)
     @IndexColumn(name="list_index", nullable = false)
     @JoinColumn(name = "workplace_id")
-    @OneToMany (cascade = CascadeType.ALL/*,mappedBy="workplace"*/,fetch = FetchType.EAGER)
+    @OneToMany (cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     private List<UnitItem> units;
 
     public List<UnitItem> getUnits() {
@@ -71,15 +65,7 @@ public class Workplace {
     public void setUnits(List<UnitItem> units) {
         this.units = units;
     }
-//    private Set<UnitItem> units;
-//
-//    public Set<UnitItem> getUnits() {
-//        return units;
-//    }
-//
-//    public void setUnits(Set<UnitItem> units) {
-//            this.units = units;
-//    }
+
 
     public Integer getId() {
         return id;

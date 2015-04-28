@@ -70,8 +70,6 @@ public class UserDAO implements UserDAOInterface{
             currentSession().save(user);
 
 
-           // currentSession().flush();
-
     }
 
     @Override
