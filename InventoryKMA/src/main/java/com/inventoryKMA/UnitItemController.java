@@ -52,10 +52,10 @@ public class UnitItemController {
 
     @RequestMapping(value="/admin/unititem/delete/{classsroom_number}/{id}",method = RequestMethod.GET)
     @ResponseBody
-    public String /*String*/ deleteUnitItem(ModelMap model,@PathVariable Integer classsroom_number,@PathVariable Integer id){
+    public String deleteUnitItem(ModelMap model,@PathVariable Integer classsroom_number,@PathVariable Integer id){
 
         unitItemService.deleteUnitItem(id);
         return "yes";
-      //  return "redirect:/admin/classroom/"+classsroom_number;
+
     }
 }

@@ -48,7 +48,7 @@ public class UserController {
     @RequestMapping(value = "/admin/assistant/delete/{id}", method = RequestMethod.GET)
     public String deleteAssistant(ModelMap model,@PathVariable int id) {
 
-        //model.addAttribute("assistants", userService.getUsersByRoleName("ROLE_ASSISTANT"));
+
         userService.deleteUser(id);
         return "redirect:/admin/assistant/list";
     }
