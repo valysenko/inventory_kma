@@ -13,7 +13,7 @@
         .fig {
             text-align: center;
             color:#253d6d;
-            font-size:53px;
+            font-size:52px;
         }
     </style>
 </head>
